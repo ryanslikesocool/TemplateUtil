@@ -25,10 +25,10 @@ When in the Project view in Unity, right click into the `Create` menu.  Select o
 ## Modifying/Adding Templates
 Templates are stored in `Assets/Plugins/TemplateUtil` as `.cs.txt` files.
 
-**Modifying Templates**
+**Modifying Templates**\
 To modify a prebuilt template, modify the text file located in the template folder.  They should look about the same as a normal C# file
 
-**Adding Templates**
+**Adding Templates**\
 To add a template, create a new file with the extension `.cs.txt` in the template folder
 Add the C# code you'd like for the template.  Refer to **Dynamic Text** for information on automatically filling certain text
 In `ScriptTemplateUtility.cs`, add a new method like the one below, replacing `MyCustomScript` with the template file name.
@@ -40,6 +40,6 @@ public static void CreateMyCustomScriptFromTemplate()
 }
 ```
 
-**Dynamic Text**
+**Dynamic Text**\
 `#SCRIPTNAME#` - The name of the file when created
 `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#` - Wrapped around an object to automatically fill with the current scope's namespace.
