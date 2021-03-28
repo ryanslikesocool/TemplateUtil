@@ -45,3 +45,6 @@ public static void CreateMyCustomScriptFromTemplate()
 **Dynamic Text**\
 `#SCRIPTNAME#` - The name of the file when created\
 `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#` - Wrapped around an object to automatically fill with the current scope's namespace.
+
+## Credtis
+[This wonderful post](https://forum.unity.com/threads/how-to-create-your-own-c-script-template.459977/#post-5365599) on the Unity forums
