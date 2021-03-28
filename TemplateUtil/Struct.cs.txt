@@ -1,0 +1,8 @@
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+public struct #SCRIPTNAME#
+{
+    
+}
+#ROOTNAMESPACEEND#
