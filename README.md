@@ -18,7 +18,7 @@ Easily customizable Unity script templates
     - IConvertGameObjectToEntity
 
 ## Installation
-- Get the latest release
+- Get the latest [release](https://github.com/ryanslikesocool/TemplateUtil/releases)
 - Open with the desired Unity project
 - Import into Plugins
 
