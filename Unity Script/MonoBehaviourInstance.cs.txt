@@ -1,5 +1,4 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour
