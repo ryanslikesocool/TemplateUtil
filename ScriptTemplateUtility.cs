@@ -62,6 +62,7 @@ namespace TemplateUtil
         #endregion
 
         #region DOTS Script
+        #if UNITY_ENTITIES
         [MenuItem(itemName: "Assets/Create/DOTS Script/SystemBase", isValidateFunction: false, priority: -98)]
         public static void CreateSystemBaseFromTemplate()
         {
@@ -79,6 +80,7 @@ namespace TemplateUtil
         {
             ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{DOTS_PATH}/IConvertGameObjectToEntity.cs.txt", "NewIConvertGameObjectToEntity.cs");
         }
+        #endif
         #endregion
     }
 }
