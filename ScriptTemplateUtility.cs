@@ -1,37 +1,55 @@
 #if UNITY_EDITOR
 using UnityEditor;
+using System.IO;
 
 namespace TemplateUtil
 {
     public static class ScriptTemplateUtility
     {
-        private const string CS_PATH = "Assets/Plugins/TemplateUtil/C# Script";
-        private const string UNITY_PATH = "Assets/Plugins/TemplateUtil/Unity Script";
-        private const string DOTS_PATH = "Assets/Plugins/TemplateUtil/DOTS Script";
+        private const string ASSETS_PATH = "Assets/Plugins/TemplateUtil";
+        private const string PACKAGES_PATH = "Packages/com.ifelse.templateutil";
+
+        private const string CS_PATH = "{0}/C# Script";
+        private const string UNITY_PATH = "{0}/Unity Script";
+        private const string DOTS_PATH = "{0}/DOTS Script";
+
+        private static void CreateAtPath(string path, string newName) {
+            try
+            {
+                ProjectWindowUtil.CreateScriptAssetFromTemplateFile(string.Format(path, ASSETS_PATH), newName);
+            }
+            catch {}
+
+            try
+            {
+                ProjectWindowUtil.CreateScriptAssetFromTemplateFile(string.Format(path, PACKAGES_PATH), newName);
+            }
+            catch {}
+        }
 
         #region C# Script
         [MenuItem(itemName: "Assets/Create/C# Script/Struct", isValidateFunction: false, priority: -100)]
         public static void CreateStructFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{CS_PATH}/Struct.cs.txt", "NewStruct.cs");
+            CreateAtPath($"{CS_PATH}/Struct.cs.txt", "NewStruct.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/C# Script/Class", isValidateFunction: false, priority: -100)]
         public static void CreateClassFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{CS_PATH}/Class.cs.txt", "NewClass.cs");
+            CreateAtPath($"{CS_PATH}/Class.cs.txt", "NewClass.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/C# Script/Interface", isValidateFunction: false, priority: -100)]
         public static void CreateInterfaceFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{CS_PATH}/Interface.cs.txt", "NewInterface.cs");
+            CreateAtPath($"{CS_PATH}/Interface.cs.txt", "NewInterface.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/C# Script/Extension Class", isValidateFunction: false, priority: -100)]
         public static void CreateExtensionClassFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{CS_PATH}/ExtensionClass.cs.txt", "NewExtensionClass.cs");
+            CreateAtPath($"{CS_PATH}/ExtensionClass.cs.txt", "NewExtensionClass.cs");
         }
         #endregion
 
@@ -39,25 +57,25 @@ namespace TemplateUtil
         [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour", isValidateFunction: false, priority: -99)]
         public static void CreateMonoBehaviourFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{UNITY_PATH}/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
+            CreateAtPath($"{UNITY_PATH}/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour Instance", isValidateFunction: false, priority: -99)]
         public static void CreateMonoBehaviourInstanceFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{UNITY_PATH}/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
+            CreateAtPath($"{UNITY_PATH}/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/Unity Script/ScriptableObject", isValidateFunction: false, priority: -99)]
         public static void CreateScriptableObjectFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{UNITY_PATH}/ScriptableObject.cs.txt", "NewScriptableObject.cs");
+            CreateAtPath($"{UNITY_PATH}/ScriptableObject.cs.txt", "NewScriptableObject.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/Unity Script/Editor", isValidateFunction: false, priority: -99)]
         public static void CreateEditorFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{UNITY_PATH}/Editor.cs.txt", "NewEditor.cs");
+            CreateAtPath($"{UNITY_PATH}/Editor.cs.txt", "NewEditor.cs");
         }
         #endregion
 
@@ -66,19 +84,19 @@ namespace TemplateUtil
         [MenuItem(itemName: "Assets/Create/DOTS Script/SystemBase", isValidateFunction: false, priority: -98)]
         public static void CreateSystemBaseFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{DOTS_PATH}/SystemBase.cs.txt", "NewSystemBase.cs");
+            CreateAtPath($"{DOTS_PATH}/SystemBase.cs.txt", "NewSystemBase.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/IComponentData", isValidateFunction: false, priority: -98)]
         public static void CreateIComponentDataFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{DOTS_PATH}/IComponentData.cs.txt", "NewIComponentData.cs");
+            CreateAtPath($"{DOTS_PATH}/IComponentData.cs.txt", "NewIComponentData.cs");
         }
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
         public static void CreateIConvertGameObjectToEntityFromTemplate()
         {
-            ProjectWindowUtil.CreateScriptAssetFromTemplateFile($"{DOTS_PATH}/IConvertGameObjectToEntity.cs.txt", "NewIConvertGameObjectToEntity.cs");
+            CreateAtPath($"{DOTS_PATH}/IConvertGameObjectToEntity.cs.txt", "NewIConvertGameObjectToEntity.cs");
         }
         #endif
         #endregion
