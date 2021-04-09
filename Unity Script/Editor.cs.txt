@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 
 #ROOTNAMESPACEBEGIN#
-[CustomEditor(typeof(#SCRIPTNAME#))]
+[CustomEditor(typeof(/*BaseType*/))]
 //[CanEditMultipleObjects]
 public class #SCRIPTNAME# : Editor
 {
