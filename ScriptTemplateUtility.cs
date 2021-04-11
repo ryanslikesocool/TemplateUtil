@@ -93,7 +93,7 @@ namespace TemplateUtil
             CreateAtPath($"{DOTS_PATH}/IComponentData.cs.txt", "NewIComponentData.cs");
         }
 
-        [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
+        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyOverride", isValidateFunction: false, priority: -98)]
         public static void CreateMaterialPropertyOverrideComponentFromTemplate()
         {
             CreateAtPath($"{DOTS_PATH}/MaterialPropertyOverrideComponent.cs.txt", "NewMaterialPropertyOverrideComponent.cs");
