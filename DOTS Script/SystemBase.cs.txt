@@ -6,11 +6,11 @@ using Unity.Mathematics;
 using Unity.Transforms;
 
 #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : SystemBase
-{
-    protected override void OnUpdate()
+    public class #SCRIPTNAME# : SystemBase
     {
-        
+        protected override void OnUpdate()
+        {
+            
+        }
     }
-}
 #ROOTNAMESPACEEND#

@@ -4,9 +4,9 @@ using Unity.Entities;
 using Unity.Mathematics;
 
 #ROOTNAMESPACEBEGIN#
-[Serializable]
-public struct #SCRIPTNAME# : IComponentData
-{
-    
-}
+    [Serializable]
+    public struct #SCRIPTNAME# : IComponentData
+    {
+        
+    }
 #ROOTNAMESPACEEND#

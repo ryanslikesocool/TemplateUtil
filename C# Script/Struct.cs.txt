@@ -1,8 +1,8 @@
 using UnityEngine;
 
 #ROOTNAMESPACEBEGIN#
-public struct #SCRIPTNAME#
-{
-    
-}
+    public struct #SCRIPTNAME#
+    {
+        
+    }
 #ROOTNAMESPACEEND#
