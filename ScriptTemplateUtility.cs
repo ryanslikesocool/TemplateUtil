@@ -27,7 +27,7 @@ namespace TemplateUtil
             catch {}
         }
 
-        #region C# Script
+#region C# Script
         [MenuItem(itemName: "Assets/Create/C# Script/Struct", isValidateFunction: false, priority: -100)]
         public static void CreateStructFromTemplate()
         {
@@ -51,9 +51,9 @@ namespace TemplateUtil
         {
             CreateAtPath($"{CS_PATH}/ExtensionClass.cs.txt", "NewExtensionClass.cs");
         }
-        #endregion
+#endregion
 
-        #region Unity Script
+#region Unity Script
         [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour", isValidateFunction: false, priority: -99)]
         public static void CreateMonoBehaviourFromTemplate()
         {
@@ -77,10 +77,10 @@ namespace TemplateUtil
         {
             CreateAtPath($"{UNITY_PATH}/Editor.cs.txt", "NewEditor.cs");
         }
-        #endregion
+#endregion
 
-        #region DOTS Script
-        #if UNITY_ENTITIES
+#region DOTS Script
+#if UNITY_ENTITIES
         [MenuItem(itemName: "Assets/Create/DOTS Script/SystemBase", isValidateFunction: false, priority: -98)]
         public static void CreateSystemBaseFromTemplate()
         {
@@ -94,12 +94,18 @@ namespace TemplateUtil
         }
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
+        public static void CreateMaterialPropertyOverrideComponentFromTemplate()
+        {
+            CreateAtPath($"{DOTS_PATH}/MaterialPropertyOverrideComponent.cs.txt", "NewMaterialPropertyOverrideComponent.cs");
+        }
+
+        [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
         public static void CreateIConvertGameObjectToEntityFromTemplate()
         {
             CreateAtPath($"{DOTS_PATH}/IConvertGameObjectToEntity.cs.txt", "NewIConvertGameObjectToEntity.cs");
         }
-        #endif
-        #endregion
+#endif
+#endregion
     }
 }
 #endif
