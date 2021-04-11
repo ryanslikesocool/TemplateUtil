@@ -1,7 +1,7 @@
 using UnityEngine;
 
 #ROOTNAMESPACEBEGIN#
-[CreateAssetMenu(menuName = "#ROOTNAMESPACEBEGIN#/#SCRIPTNAME#", fileName = "New #SCRIPTNAME#")]
+[CreateAssetMenu(menuName = "#SCRIPTNAME#", fileName = "New #SCRIPTNAME#")]
 public class #SCRIPTNAME# : ScriptableObject
 {
 
