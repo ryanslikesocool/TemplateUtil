@@ -1,0 +1,21 @@
+#if UNITY_EDITOR
+using UnityEngine;
+using UnityEditor;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : EditorWindow
+    {
+        [MenuItem("Window/#SCRIPTNAME#")]
+        private static void Init()
+        {
+            #SCRIPTNAME# window = (#SCRIPTNAME#)EditorWindow.GetWindow(typeof(#SCRIPTNAME#));
+            window.Show();
+        }
+
+        private void OnGUI()
+        {
+
+        }
+    }
+#ROOTNAMESPACEEND#
+#endif
