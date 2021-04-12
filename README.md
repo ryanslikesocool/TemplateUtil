@@ -1,5 +1,5 @@
 # TemplateUtil
-Easily customizable Unity script templates
+Easily customizable Unity script templates\
 ![Sample Image](images/sample.jpg)
 
 ## Prebuilt Templates
