@@ -16,10 +16,6 @@ namespace TemplateUtil
 
         private const string UTIL_FILE = "TemplateUtilMenus.cs";
 
-        private const string FILE_PATH = "{0}/{1}";
-        // 0 = package or plugin path
-        // 1 = util file name
-
         private const string UTIL_CLASS = @"
 // {0}
 // Generated on {1}
@@ -154,8 +150,9 @@ namespace TemplateUtil
             
             string fileText = string.Format(UTIL_CLASS, UTIL_FILE, dateTime, allMethods);
             
-            bool isPackage = File.Exists(Application.dataPath.Replace("Assets", string.Empty));
-            string path = string.Format(FILE_PATH, isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
+            string dataPath = Application.dataPath.Replace("Assets", string.Empty);
+            bool isPackage = File.Exists(Path.Combine(dataPath, PACKAGES_PATH));
+            string path = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
             File.WriteAllText(path, fileText);
 
             Debug.Log($"Generated {UTIL_FILE} at {dateTime}");
