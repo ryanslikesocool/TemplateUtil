@@ -152,7 +152,14 @@ namespace TemplateUtil
             
             string dataPath = Application.dataPath.Replace("Assets", string.Empty);
             bool isPackage = File.Exists(Path.Combine(dataPath, PACKAGES_PATH));
-            string path = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
+            dataPath = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH);
+
+            if (!File.Exists(dataPath))
+            {
+                Directory.CreateDirectory(dataPath);
+            }
+
+            string path = Path.Combine(dataPath, UTIL_FILE);
             File.WriteAllText(path, fileText);
 
             Debug.Log($"Generated {UTIL_FILE} at {dateTime}");
