@@ -1,6 +1,6 @@
 
 // TemplateUtilMenus.cs
-// Generated on 2021-04-12 06:01:33
+// Generated on 2021-04-13 23:31:52
 
 #if UNITY_EDITOR
 using System;
@@ -130,6 +130,12 @@ namespace TemplateUtil
             CreateAtPath($"Templates/MaterialPropertyOverrideComponent.cs.txt", "NewMaterialPropertyOverrideComponent.cs");
         }
         
+        [MenuItem(itemName: "Assets/Create/DOTS Script/IBufferElementData", isValidateFunction: false, priority: -98)]
+        public static void CreateIBufferElementDataFromTemplate()
+        {
+            CreateAtPath($"Templates/IBufferElementData.cs.txt", "NewIBufferElementData.cs");
+        }
+        
         [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
         public static void CreateIConvertGameObjectToEntityFromTemplate()
         {
@@ -140,6 +146,12 @@ namespace TemplateUtil
         public static void CreateSystemBaseFromTemplate()
         {
             CreateAtPath($"Templates/SystemBase.cs.txt", "NewSystemBase.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/DOTS Script/SystemGroup", isValidateFunction: false, priority: -98)]
+        public static void CreateSystemGroupFromTemplate()
+        {
+            CreateAtPath($"Templates/SystemGroup.cs.txt", "NewSystemGroup.cs");
         }
         
 #endif
