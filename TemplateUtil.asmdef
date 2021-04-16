@@ -16,6 +16,11 @@
             "name": "com.unity.entities",
             "expression": "0.16",
             "define": "UNITY_ENTITIES"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "10",
+            "define": "UNITY_URP"
         }
     ],
     "noEngineReferences": false

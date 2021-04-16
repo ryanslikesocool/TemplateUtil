@@ -1,6 +1,5 @@
-
 // TemplateUtilMenus.cs
-// Generated on 2021-04-13 23:31:52
+// Generated on 2021-04-15 18:53:59
 
 #if UNITY_EDITOR
 using System;
@@ -34,49 +33,7 @@ namespace TemplateUtil
             Debug.LogWarning("Template file could not be found.  Please ensure that the template file is in the correct directory.");
         }
 
-        #region Unity Script
-
-        [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour", isValidateFunction: false, priority: -99)]
-        public static void CreateMonoBehaviourFromTemplate()
-        {
-            CreateAtPath($"Templates/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviourInstance", isValidateFunction: false, priority: -99)]
-        public static void CreateMonoBehaviourInstanceFromTemplate()
-        {
-            CreateAtPath($"Templates/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/Unity Script/AbstractMonoBehaviour", isValidateFunction: false, priority: -99)]
-        public static void CreateAbstractMonoBehaviourFromTemplate()
-        {
-            CreateAtPath($"Templates/AbstractMonoBehaviour.cs.txt", "NewAbstractMonoBehaviour.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/Unity Script/ScriptableObject", isValidateFunction: false, priority: -99)]
-        public static void CreateScriptableObjectFromTemplate()
-        {
-            CreateAtPath($"Templates/ScriptableObject.cs.txt", "NewScriptableObject.cs");
-        }
-        
-#endregion
-#region Unity Script/Editors
-
-        [MenuItem(itemName: "Assets/Create/Unity Script/Editors/Editor", isValidateFunction: false, priority: -99)]
-        public static void CreateEditorFromTemplate()
-        {
-            CreateAtPath($"Templates/Editor.cs.txt", "NewEditor.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/Unity Script/Editors/EditorWindow", isValidateFunction: false, priority: -99)]
-        public static void CreateEditorWindowFromTemplate()
-        {
-            CreateAtPath($"Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
-        }
-        
-#endregion
-#region C# Script
+        #region C# Script
 
         [MenuItem(itemName: "Assets/Create/C# Script/Class", isValidateFunction: false, priority: -100)]
         public static void CreateClassFromTemplate()
@@ -102,21 +59,63 @@ namespace TemplateUtil
             CreateAtPath($"Templates/Struct.cs.txt", "NewStruct.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/C# Script/Enum", isValidateFunction: false, priority: -100)]
-        public static void CreateEnumFromTemplate()
-        {
-            CreateAtPath($"Templates/Enum.cs.txt", "NewEnum.cs");
-        }
-        
         [MenuItem(itemName: "Assets/Create/C# Script/Interface", isValidateFunction: false, priority: -100)]
         public static void CreateInterfaceFromTemplate()
         {
             CreateAtPath($"Templates/Interface.cs.txt", "NewInterface.cs");
         }
         
+        [MenuItem(itemName: "Assets/Create/C# Script/Enum", isValidateFunction: false, priority: -100)]
+        public static void CreateEnumFromTemplate()
+        {
+            CreateAtPath($"Templates/Enum.cs.txt", "NewEnum.cs");
+        }
+        
+#endregion
+#region Unity Script
+
+        [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour", isValidateFunction: false, priority: -99)]
+        public static void CreateMonoBehaviourFromTemplate()
+        {
+            CreateAtPath($"Templates/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/AbstractMonoBehaviour", isValidateFunction: false, priority: -99)]
+        public static void CreateAbstractMonoBehaviourFromTemplate()
+        {
+            CreateAtPath($"Templates/AbstractMonoBehaviour.cs.txt", "NewAbstractMonoBehaviour.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviourInstance", isValidateFunction: false, priority: -99)]
+        public static void CreateMonoBehaviourInstanceFromTemplate()
+        {
+            CreateAtPath($"Templates/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/ScriptableObject", isValidateFunction: false, priority: -99)]
+        public static void CreateScriptableObjectFromTemplate()
+        {
+            CreateAtPath($"Templates/ScriptableObject.cs.txt", "NewScriptableObject.cs");
+        }
+        
+#endregion
+#region Unity Script/Editor
+
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Editor", isValidateFunction: false, priority: -98)]
+        public static void CreateEditorFromTemplate()
+        {
+            CreateAtPath($"Templates/Editor.cs.txt", "NewEditor.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/EditorWindow", isValidateFunction: false, priority: -98)]
+        public static void CreateEditorWindowFromTemplate()
+        {
+            CreateAtPath($"Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
+        }
+        
 #endregion
 #region DOTS Script
-#if UNITY_ENTITIES
+#if UNITY_DOTS
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/IComponentData", isValidateFunction: false, priority: -98)]
         public static void CreateIComponentDataFromTemplate()
@@ -124,16 +123,16 @@ namespace TemplateUtil
             CreateAtPath($"Templates/IComponentData.cs.txt", "NewIComponentData.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyOverrideComponent", isValidateFunction: false, priority: -98)]
-        public static void CreateMaterialPropertyOverrideComponentFromTemplate()
-        {
-            CreateAtPath($"Templates/MaterialPropertyOverrideComponent.cs.txt", "NewMaterialPropertyOverrideComponent.cs");
-        }
-        
         [MenuItem(itemName: "Assets/Create/DOTS Script/IBufferElementData", isValidateFunction: false, priority: -98)]
         public static void CreateIBufferElementDataFromTemplate()
         {
             CreateAtPath($"Templates/IBufferElementData.cs.txt", "NewIBufferElementData.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyIComponentData", isValidateFunction: false, priority: -98)]
+        public static void CreateMaterialPropertyIComponentDataFromTemplate()
+        {
+            CreateAtPath($"Templates/MaterialPropertyIComponentData.cs.txt", "NewMaterialPropertyIComponentData.cs");
         }
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
@@ -152,6 +151,29 @@ namespace TemplateUtil
         public static void CreateSystemGroupFromTemplate()
         {
             CreateAtPath($"Templates/SystemGroup.cs.txt", "NewSystemGroup.cs");
+        }
+        
+#endif
+#endregion
+#region URP Script
+#if UNITY_URP
+
+        [MenuItem(itemName: "Assets/Create/URP Script/RenderFeatureSettings", isValidateFunction: false, priority: -97)]
+        public static void CreateRenderFeatureSettingsFromTemplate()
+        {
+            CreateAtPath($"Templates/RenderFeatureSettings.cs.txt", "NewRenderFeatureSettings.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/URP Script/ScriptableRendererFeature", isValidateFunction: false, priority: -97)]
+        public static void CreateScriptableRendererFeatureFromTemplate()
+        {
+            CreateAtPath($"Templates/ScriptableRendererFeature.cs.txt", "NewScriptableRendererFeature.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/URP Script/ScriptableRenderPass", isValidateFunction: false, priority: -97)]
+        public static void CreateScriptableRenderPassFromTemplate()
+        {
+            CreateAtPath($"Templates/ScriptableRenderPass.cs.txt", "NewScriptableRenderPass.cs");
         }
         
 #endif

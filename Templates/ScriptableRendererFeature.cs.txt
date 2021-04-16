@@ -1,0 +1,20 @@
+using UnityEngine.Rendering.Universal;
+
+#ROOTNAMESPACEBEGIN#
+    public class #SCRIPTNAME# : ScriptableRendererFeature
+    {
+        public #SCRIPTNAME#Settings settings = new #SCRIPTNAME#Settings();
+
+        private #SCRIPTNAME#Pass pass;
+
+        public override void Create()
+        {
+            pass = new #SCRIPTNAME#Pass(name, settings);
+        }
+
+        public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+        {
+            renderer.EnqueuePass(pass);
+        }
+    }
+#ROOTNAMESPACEEND#

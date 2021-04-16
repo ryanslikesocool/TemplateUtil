@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65d555e5d9fc4660b7367c3be94b49d, type: 3}
+  m_Name: Template Util Database
+  m_EditorClassIdentifier: 
+  folders:
+  - menuPath: C# Script
+    preprocessor: 
+    priority: -100
+    templateFiles:
+    - {fileID: 4900000, guid: 6ad2ed2cae96c4a5dbc58629be0ef398, type: 3}
+    - {fileID: 4900000, guid: df03f17c071064973ba96437fc2398f6, type: 3}
+    - {fileID: 4900000, guid: d690c4da97816488ea29800baa139d21, type: 3}
+    - {fileID: 4900000, guid: 342dd9adf6d65466089877959bd7ea06, type: 3}
+    - {fileID: 4900000, guid: fee07c9c147d64ac9a633bfa896f6f7c, type: 3}
+    - {fileID: 4900000, guid: 774d08e3a540345faa07a531d61e209f, type: 3}
+  - menuPath: Unity Script
+    preprocessor: 
+    priority: -99
+    templateFiles:
+    - {fileID: 4900000, guid: c04aaf122a364458994a5170482556f6, type: 3}
+    - {fileID: 4900000, guid: cee56c27c4046419786c31549a4ab969, type: 3}
+    - {fileID: 4900000, guid: 82a25e491cc814b2181bacb3f7aa2fc1, type: 3}
+    - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}
+  - menuPath: Unity Script/Editor
+    preprocessor: 
+    priority: -98
+    templateFiles:
+    - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
+    - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
+  - menuPath: DOTS Script
+    preprocessor: UNITY_DOTS
+    priority: -98
+    templateFiles:
+    - {fileID: 4900000, guid: e107c5ebe227d456bbc5666325b19cc3, type: 3}
+    - {fileID: 4900000, guid: 124ae907ce6244c1589519d5b362618c, type: 3}
+    - {fileID: 4900000, guid: abbe3f3fbc82341109dfd6c4edf90654, type: 3}
+    - {fileID: 4900000, guid: 7038395650a4d4c1baed7bf7882759d4, type: 3}
+    - {fileID: 4900000, guid: bee20153773f445d398b0951ce99033f, type: 3}
+    - {fileID: 4900000, guid: 6b8adad8ebfab469ead84345b590dea9, type: 3}
+  - menuPath: URP Script
+    preprocessor: UNITY_URP
+    priority: -97
+    templateFiles:
+    - {fileID: 4900000, guid: fe1822d81283249e8a3d9428d9e47f22, type: 3}
+    - {fileID: 4900000, guid: 45715ef2cefe447ae83109446f78280f, type: 3}
+    - {fileID: 4900000, guid: 4871f0e96a27a464d9e97748ee17d0a9, type: 3}

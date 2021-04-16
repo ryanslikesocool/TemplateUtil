@@ -16,8 +16,7 @@ namespace TemplateUtil
 
         private const string UTIL_FILE = "TemplateUtilMenus.cs";
 
-        private const string UTIL_CLASS = @"
-// {0}
+        private const string UTIL_CLASS = @"// {0}
 // Generated on {1}
 
 #if UNITY_EDITOR
@@ -80,17 +79,23 @@ namespace TemplateUtil
 
         private Vector2 scrollPos = Vector2.zero;
 
-        [Serializable]
-        public struct TemplateFolder
-        {
-            public string menuPath;
-            public string preprocessor;
-            public int priority;
-            public TextAsset[] templateFiles;
-        }
-        public TemplateFolder[] folders = new TemplateFolder[0];
+        private TemplateUtilDatabase database = null;
+        private SerializedObject scriptableObject = null;
+        private SerializedProperty folderProp = null;
 
-        [MenuItem("Window/TemplateUtil Manager")]
+        public TemplateUtilDatabase.TemplateFolder[] folders
+        { 
+            get => database.folders;
+            set
+            {
+                if (database != null)
+                {
+                    database.folders = value;
+                }
+            }
+        }
+
+        [MenuItem("Tools/TemplateUtil Manager")]
         private static void Init()
         {
             TemplateUtilWindow window = (TemplateUtilWindow)EditorWindow.GetWindow(typeof(TemplateUtilWindow));
@@ -99,20 +104,31 @@ namespace TemplateUtil
 
         private void OnGUI()
         {
-            ScriptableObject target = this;
-            SerializedObject so = new SerializedObject(target);
-            SerializedProperty folderProp = so.FindProperty("folders");
-
-            scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
-            EditorGUILayout.PropertyField(folderProp, true);
-            EditorGUILayout.EndScrollView();
-
-            if (GUILayout.Button($"Generate {UTIL_FILE}"))
+            if (database == null)
             {
-                RegenerateTemplateUtilFile();                    
+                database = (TemplateUtilDatabase)EditorGUILayout.ObjectField(database, typeof(TemplateUtilDatabase), false);
             }
+            else
+            {
+                if (scriptableObject == null || folderProp == null)
+                {
+                    scriptableObject = new SerializedObject(database);
+                    folderProp = scriptableObject.FindProperty("folders");
+                }
 
-            so.ApplyModifiedProperties();
+                scriptableObject.Update();
+
+                scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
+                EditorGUILayout.PropertyField(folderProp, true);
+                EditorGUILayout.EndScrollView();
+
+                if (GUILayout.Button($"Generate {UTIL_FILE}"))
+                {
+                    RegenerateTemplateUtilFile();                    
+                }
+    
+                scriptableObject.ApplyModifiedProperties();
+            }
         }
 
         private void RegenerateTemplateUtilFile()
@@ -162,7 +178,9 @@ namespace TemplateUtil
             string path = Path.Combine(dataPath, UTIL_FILE);
             File.WriteAllText(path, fileText);
 
-            Debug.Log($"Generated {UTIL_FILE} at {dateTime}");
+            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
+            
+            AssetDatabase.Refresh();
         }
     }
 }
