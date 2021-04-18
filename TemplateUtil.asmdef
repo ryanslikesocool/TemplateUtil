@@ -15,7 +15,7 @@
         {
             "name": "com.unity.entities",
             "expression": "0.16",
-            "define": "UNITY_ENTITIES"
+            "define": "UNITY_DOTS"
         },
         {
             "name": "com.unity.render-pipelines.universal",
