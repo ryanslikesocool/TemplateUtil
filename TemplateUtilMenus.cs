@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-04-17 23:27:56
+// Generated on 2021-04-25 00:24:19
 
 #if UNITY_EDITOR
 using System;
@@ -53,6 +53,12 @@ namespace TemplateUtil
             CreateAtPath($"Templates/ExtensionClass.cs.txt", "NewExtensionClass.cs");
         }
         
+        [MenuItem(itemName: "Assets/Create/C# Script/PartialExtensionClass", isValidateFunction: false, priority: -100)]
+        public static void CreatePartialExtensionClassFromTemplate()
+        {
+            CreateAtPath($"Templates/PartialExtensionClass.cs.txt", "NewPartialExtensionClass.cs");
+        }
+        
         [MenuItem(itemName: "Assets/Create/C# Script/Struct", isValidateFunction: false, priority: -100)]
         public static void CreateStructFromTemplate()
         {
@@ -69,6 +75,12 @@ namespace TemplateUtil
         public static void CreateEnumFromTemplate()
         {
             CreateAtPath($"Templates/Enum.cs.txt", "NewEnum.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/C# Script/Attribute", isValidateFunction: false, priority: -100)]
+        public static void CreateAttributeFromTemplate()
+        {
+            CreateAtPath($"Templates/Attribute.cs.txt", "NewAttribute.cs");
         }
         
 #endregion

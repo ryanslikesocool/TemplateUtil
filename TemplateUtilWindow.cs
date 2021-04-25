@@ -95,7 +95,7 @@ namespace TemplateUtil
             }
         }
 
-        [MenuItem("Tools/TemplateUtil Manager")]
+        [MenuItem("Tools/ifelse/TemplateUtil Manager")]
         private static void Init()
         {
             TemplateUtilWindow window = (TemplateUtilWindow)EditorWindow.GetWindow(typeof(TemplateUtilWindow));

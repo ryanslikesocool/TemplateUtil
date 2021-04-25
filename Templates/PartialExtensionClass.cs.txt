@@ -1,0 +1,8 @@
+using UnityEngine;
+
+#ROOTNAMESPACEBEGIN#
+    public static partial class #SCRIPTNAME#
+    {
+        
+    }
+#ROOTNAMESPACEEND#
