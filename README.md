@@ -4,24 +4,32 @@ Easily customizable Unity script templates\
 
 ## Prebuilt Templates
 - C# Script
-    - Struct
     - Class
+    - AbstractClass
+    - ExtensionClass
+    - PartialExtensionClass
+    - Struct
     - Interface
-    - Extension Class
-    - Abstract Class
     - Enum
+    - Attribute
 - Unity Script
     - MonoBehaviour
-    - Abstract MonoBehaviour
-    - MonoBehaviour Instance
+    - AbstractMonoBehaviour
+    - MonoBehaviourInstance
     - ScriptableObject
     - Editor
     - EditorWindow
 - DOTS Script
-    - SystemBase
     - IComponentData
-    - MaterialPropertyOverride Component
+    - IBufferElementData
+    - MaterialPropertyIComponentData
     - IConvertGameObjectToEntity
+    - SystemBase
+    - SystemGroup
+- URP Script
+    - RenderFeatureSettings
+    - ScriptableRenderFeature
+    - ScriptableRenderPass
 
 **RECOMMENDED INSTALLATION**
 - Add via the Unity Package Manager
