@@ -60,11 +60,18 @@ namespace TemplateUtil
         // 1 = date and time generated
         // 2 = util methods
 
-        private const string UTIL_METHOD = @"
+        private const string CS_UTIL_METHOD = @"
         [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
         public static void Create{2}FromTemplate()
         {{
             CreateAtPath($""Templates/{2}.cs.txt"", ""New{2}.cs"");
+        }}
+        ";
+        private const string SHADER_UTIL_METHOD = @"
+        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
+        public static void Create{2}FromTemplate()
+        {{
+            CreateAtPath($""Templates/{2}.shader.txt"", ""New{2}.shader"");
         }}
         ";
         // 0 = menu path
@@ -84,7 +91,7 @@ namespace TemplateUtil
         private SerializedProperty folderProp = null;
 
         public TemplateUtilDatabase.TemplateFolder[] folders
-        { 
+        {
             get => database.folders;
             set
             {
@@ -124,9 +131,9 @@ namespace TemplateUtil
 
                 if (GUILayout.Button($"Generate {UTIL_FILE}"))
                 {
-                    RegenerateTemplateUtilFile();                    
+                    RegenerateTemplateUtilFile();
                 }
-    
+
                 scriptableObject.ApplyModifiedProperties();
             }
         }
@@ -147,8 +154,16 @@ namespace TemplateUtil
                 {
                     string filePath = AssetDatabase.GetAssetPath(templateFiles[j]);
                     string[] components = filePath.Split('/');
-                    string filePrefix = components[components.Length - 1].Replace(".cs.txt", string.Empty);
-                    methodArray[j] = string.Format(UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
+                    if (components[components.Length - 1].Contains(".cs.txt"))
+                    {
+                        string filePrefix = components[components.Length - 1].Replace(".cs.txt", string.Empty);
+                        methodArray[j] = string.Format(CS_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
+                    }
+                    else
+                    {
+                        string filePrefix = components[components.Length - 1].Replace(".shader.txt", string.Empty);
+                        methodArray[j] = string.Format(SHADER_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
+                    }
                 }
                 string methods = string.Join(string.Empty, methodArray);
 
@@ -163,9 +178,9 @@ namespace TemplateUtil
             string allMethods = string.Join("\n", folderText);
 
             string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            
+
             string fileText = string.Format(UTIL_CLASS, UTIL_FILE, dateTime, allMethods);
-            
+
             string dataPath = Application.dataPath.Replace("Assets", string.Empty);
             bool isPackage = File.Exists(Path.Combine(dataPath, PACKAGES_PATH));
             dataPath = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH);
@@ -179,7 +194,7 @@ namespace TemplateUtil
             File.WriteAllText(path, fileText);
 
             Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
-            
+
             AssetDatabase.Refresh();
         }
     }

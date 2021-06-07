@@ -1,0 +1,56 @@
+Shader "Custom/#SCRIPTNAME#"
+{
+    Properties
+    {
+        //_MainTex ("Texture", 2D) = "white" {}
+        //_Color ("Color", Color) = (1, 1, 1, 1)
+        //_Vector ("Vector", Vector) = (1, 1, 1, 1)
+        //_Float ("Float", Float) = 1
+    }
+    SubShader
+    {
+        Tags
+        { 
+            "RenderPipeline"="UniversalPipeline"
+			"Queue"="Geometry"
+			"RenderType"="Opaque"
+        }
+
+        Pass
+        {
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+		    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+            struct Attributes
+            {
+                float4 positionOS : POSITION;
+                float2 texcoord0 : TEXCOORD0;
+            };
+
+            struct Varyings
+            {
+                float4 positionCS : SV_POSITION;
+                float2 texcoord0 : TEXCOORD0;
+            };
+
+            Varyings vert (Attributes IN)
+            {
+                Varyings OUT;
+                OUT.positionCS = TransformObjectToHClip(IN.positionOS.xyz);
+                OUT.texcoord0 = IN.texcoord0;
+                return OUT;
+            }
+
+            float4 frag (Varyings IN) : SV_Target
+            {
+                return float4(0, 1, 1, 1);
+            }
+            ENDHLSL
+        }
+    }
+
+    Fallback off
+}

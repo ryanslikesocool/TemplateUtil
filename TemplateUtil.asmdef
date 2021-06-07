@@ -21,6 +21,11 @@
             "name": "com.unity.render-pipelines.universal",
             "expression": "10",
             "define": "UNITY_URP"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1",
+            "define": "UNITY_INPUTSYSTEM"
         }
     ],
     "noEngineReferences": false

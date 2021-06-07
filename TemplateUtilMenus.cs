@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-04-25 00:24:19
+// Generated on 2021-06-07 03:40:05
 
 #if UNITY_EDITOR
 using System;
@@ -129,34 +129,34 @@ namespace TemplateUtil
 #region DOTS Script
 #if UNITY_DOTS
 
-        [MenuItem(itemName: "Assets/Create/DOTS Script/IComponentData", isValidateFunction: false, priority: -98)]
-        public static void CreateIComponentDataFromTemplate()
+        [MenuItem(itemName: "Assets/Create/DOTS Script/Component", isValidateFunction: false, priority: -98)]
+        public static void CreateComponentFromTemplate()
         {
-            CreateAtPath($"Templates/IComponentData.cs.txt", "NewIComponentData.cs");
+            CreateAtPath($"Templates/Component.cs.txt", "NewComponent.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/IBufferElementData", isValidateFunction: false, priority: -98)]
-        public static void CreateIBufferElementDataFromTemplate()
+        [MenuItem(itemName: "Assets/Create/DOTS Script/BufferElementComponent", isValidateFunction: false, priority: -98)]
+        public static void CreateBufferElementComponentFromTemplate()
         {
-            CreateAtPath($"Templates/IBufferElementData.cs.txt", "NewIBufferElementData.cs");
+            CreateAtPath($"Templates/BufferElementComponent.cs.txt", "NewBufferElementComponent.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyIComponentData", isValidateFunction: false, priority: -98)]
-        public static void CreateMaterialPropertyIComponentDataFromTemplate()
+        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyOverride", isValidateFunction: false, priority: -98)]
+        public static void CreateMaterialPropertyOverrideFromTemplate()
         {
-            CreateAtPath($"Templates/MaterialPropertyIComponentData.cs.txt", "NewMaterialPropertyIComponentData.cs");
+            CreateAtPath($"Templates/MaterialPropertyOverride.cs.txt", "NewMaterialPropertyOverride.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/IConvertGameObjectToEntity", isValidateFunction: false, priority: -98)]
-        public static void CreateIConvertGameObjectToEntityFromTemplate()
+        [MenuItem(itemName: "Assets/Create/DOTS Script/AuthoringComponent", isValidateFunction: false, priority: -98)]
+        public static void CreateAuthoringComponentFromTemplate()
         {
-            CreateAtPath($"Templates/IConvertGameObjectToEntity.cs.txt", "NewIConvertGameObjectToEntity.cs");
+            CreateAtPath($"Templates/AuthoringComponent.cs.txt", "NewAuthoringComponent.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/SystemBase", isValidateFunction: false, priority: -98)]
-        public static void CreateSystemBaseFromTemplate()
+        [MenuItem(itemName: "Assets/Create/DOTS Script/System", isValidateFunction: false, priority: -98)]
+        public static void CreateSystemFromTemplate()
         {
-            CreateAtPath($"Templates/SystemBase.cs.txt", "NewSystemBase.cs");
+            CreateAtPath($"Templates/System.cs.txt", "NewSystem.cs");
         }
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/SystemGroup", isValidateFunction: false, priority: -98)]
@@ -186,6 +186,17 @@ namespace TemplateUtil
         public static void CreateScriptableRenderPassFromTemplate()
         {
             CreateAtPath($"Templates/ScriptableRenderPass.cs.txt", "NewScriptableRenderPass.cs");
+        }
+        
+#endif
+#endregion
+#region Shader File/URP
+#if UNITY_URP
+
+        [MenuItem(itemName: "Assets/Create/Shader File/URP/URPUnlit", isValidateFunction: false, priority: -96)]
+        public static void CreateURPUnlitFromTemplate()
+        {
+            CreateAtPath($"Templates/URPUnlit.shader.txt", "NewURPUnlit.shader");
         }
         
 #endif
