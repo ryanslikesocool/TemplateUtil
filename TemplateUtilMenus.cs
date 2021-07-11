@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-06-07 03:40:05
+// Generated on 2021-07-11 00:29:10
 
 #if UNITY_EDITOR
 using System;
@@ -129,40 +129,56 @@ namespace TemplateUtil
 #region DOTS Script
 #if UNITY_DOTS
 
-        [MenuItem(itemName: "Assets/Create/DOTS Script/Component", isValidateFunction: false, priority: -98)]
-        public static void CreateComponentFromTemplate()
-        {
-            CreateAtPath($"Templates/Component.cs.txt", "NewComponent.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/DOTS Script/BufferElementComponent", isValidateFunction: false, priority: -98)]
-        public static void CreateBufferElementComponentFromTemplate()
-        {
-            CreateAtPath($"Templates/BufferElementComponent.cs.txt", "NewBufferElementComponent.cs");
-        }
-        
-        [MenuItem(itemName: "Assets/Create/DOTS Script/MaterialPropertyOverride", isValidateFunction: false, priority: -98)]
-        public static void CreateMaterialPropertyOverrideFromTemplate()
-        {
-            CreateAtPath($"Templates/MaterialPropertyOverride.cs.txt", "NewMaterialPropertyOverride.cs");
-        }
-        
         [MenuItem(itemName: "Assets/Create/DOTS Script/AuthoringComponent", isValidateFunction: false, priority: -98)]
         public static void CreateAuthoringComponentFromTemplate()
         {
             CreateAtPath($"Templates/AuthoringComponent.cs.txt", "NewAuthoringComponent.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/System", isValidateFunction: false, priority: -98)]
+#endif
+#endregion
+#region DOTS Script/Component
+#if UNITY_DOTS
+
+        [MenuItem(itemName: "Assets/Create/DOTS Script/Component/Component", isValidateFunction: false, priority: -98)]
+        public static void CreateComponentFromTemplate()
+        {
+            CreateAtPath($"Templates/Component.cs.txt", "NewComponent.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/DOTS Script/Component/BufferElementComponent", isValidateFunction: false, priority: -98)]
+        public static void CreateBufferElementComponentFromTemplate()
+        {
+            CreateAtPath($"Templates/BufferElementComponent.cs.txt", "NewBufferElementComponent.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/DOTS Script/Component/MaterialPropertyOverride", isValidateFunction: false, priority: -98)]
+        public static void CreateMaterialPropertyOverrideFromTemplate()
+        {
+            CreateAtPath($"Templates/MaterialPropertyOverride.cs.txt", "NewMaterialPropertyOverride.cs");
+        }
+        
+#endif
+#endregion
+#region DOTS Script/System
+#if UNITY_DOTS
+
+        [MenuItem(itemName: "Assets/Create/DOTS Script/System/System", isValidateFunction: false, priority: -98)]
         public static void CreateSystemFromTemplate()
         {
             CreateAtPath($"Templates/System.cs.txt", "NewSystem.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/DOTS Script/SystemGroup", isValidateFunction: false, priority: -98)]
+        [MenuItem(itemName: "Assets/Create/DOTS Script/System/SystemGroup", isValidateFunction: false, priority: -98)]
         public static void CreateSystemGroupFromTemplate()
         {
             CreateAtPath($"Templates/SystemGroup.cs.txt", "NewSystemGroup.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/DOTS Script/System/ConversionSystem", isValidateFunction: false, priority: -98)]
+        public static void CreateConversionSystemFromTemplate()
+        {
+            CreateAtPath($"Templates/ConversionSystem.cs.txt", "NewConversionSystem.cs");
         }
         
 #endif

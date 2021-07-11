@@ -4,7 +4,6 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using System.Text;
 using System.IO;
 
 namespace TemplateUtil
@@ -107,6 +106,7 @@ namespace TemplateUtil
         {
             TemplateUtilWindow window = (TemplateUtilWindow)EditorWindow.GetWindow(typeof(TemplateUtilWindow));
             window.Show();
+            window.titleContent = new GUIContent("Template Util");
         }
 
         private void OnGUI()

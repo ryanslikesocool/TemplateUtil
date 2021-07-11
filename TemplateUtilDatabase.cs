@@ -1,3 +1,5 @@
+// Made with <3 by Ryan Boyer http://ryanjboyer.com
+
 using System;
 using UnityEngine;
 
