@@ -14,22 +14,29 @@ Easily customizable Unity script templates\
     - Attribute
 - Unity Script
     - MonoBehaviour
-    - AbstractMonoBehaviour
     - MonoBehaviourInstance
+    - AbstractMonoBehaviour
     - ScriptableObject
     - Editor
-    - EditorWindow
+        - Editor
+        - EditorWindow
 - DOTS Script
-    - IComponentData
-    - IBufferElementData
-    - MaterialPropertyIComponentData
-    - IConvertGameObjectToEntity
-    - SystemBase
-    - SystemGroup
+    - AuthoringComponent
+    - Component
+        - Component
+        - BufferElementComponent
+        - MaterialPropertyOverride
+    - System
+        - System
+        - SystemGroup
+        - ConversionSystem
 - URP Script
     - RenderFeatureSettings
     - ScriptableRenderFeature
     - ScriptableRenderPass
+- Shader File
+    - URP
+        - URPUnlit
 
 **RECOMMENDED INSTALLATION**
 - Add via the Unity Package Manager
