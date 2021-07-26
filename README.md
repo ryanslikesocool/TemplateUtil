@@ -1,6 +1,17 @@
 # TemplateUtil
 Easily customizable Unity script templates\
-![Sample Image](images/sample.jpg)
+![Sample Image](images~/sample.jpg)
+
+**RECOMMENDED INSTALLATION**
+- Add via the Unity Package Manager
+- "Add package from git URL..."
+- `https://github.com/ryanslikesocool/TemplateUtil.git`
+- Add
+
+**Not-so Recommended Installation**
+- Get the latest [release](https://github.com/ryanslikesocool/TemplateUtil/releases)
+- Open with the desired Unity project
+- Import into Plugins
 
 ## Prebuilt Templates
 - C# Script
@@ -37,17 +48,6 @@ Easily customizable Unity script templates\
 - Shader File
     - URP
         - URPUnlit
-
-**RECOMMENDED INSTALLATION**
-- Add via the Unity Package Manager
-- "Add package from git URL..."
-- `https://github.com/ryanslikesocool/TemplateUtil.git`
-- Add
-
-**Not-so Recommended Installation**
-- Get the latest [release](https://github.com/ryanslikesocool/TemplateUtil/releases)
-- Open with the desired Unity project
-- Import into Plugins
 
 ## Usage
 When in the Project view in Unity, right click into the `Create` menu.\

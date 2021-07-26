@@ -73,6 +73,13 @@ namespace TemplateUtil
             CreateAtPath($""Templates/{2}.shader.txt"", ""New{2}.shader"");
         }}
         ";
+        private const string HLSL_UTIL_METHOD = @"
+        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
+        public static void Create{2}FromTemplate()
+        {{
+            CreateAtPath($""Templates/{2}.hlsl.txt"", ""New{2}.hlsl"");
+        }}
+        ";
         // 0 = menu path
         // 1 = priority (less than -50 is best!)
         // 2 = template file name with no extension
@@ -159,10 +166,15 @@ namespace TemplateUtil
                         string filePrefix = components[components.Length - 1].Replace(".cs.txt", string.Empty);
                         methodArray[j] = string.Format(CS_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
                     }
-                    else
+                    else if (components[components.Length - 1].Contains(".shader.txt"))
                     {
                         string filePrefix = components[components.Length - 1].Replace(".shader.txt", string.Empty);
                         methodArray[j] = string.Format(SHADER_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
+                    }
+                    else if (components[components.Length - 1].Contains(".hlsl.txt"))
+                    {
+                        string filePrefix = components[components.Length - 1].Replace(".hlsl.txt", string.Empty);
+                        methodArray[j] = string.Format(HLSL_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
                     }
                 }
                 string methods = string.Join(string.Empty, methodArray);

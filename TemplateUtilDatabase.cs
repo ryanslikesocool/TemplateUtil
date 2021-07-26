@@ -1,5 +1,6 @@
 // Made with <3 by Ryan Boyer http://ryanjboyer.com
 
+#if UNITY_EDITOR
 using System;
 using UnityEngine;
 
@@ -18,3 +19,4 @@ namespace TemplateUtil
         public TemplateFolder[] folders = new TemplateFolder[0];
     }
 }
+#endif

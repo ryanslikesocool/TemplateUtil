@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-07-11 00:29:10
+// Generated on 2021-07-26 02:29:29
 
 #if UNITY_EDITOR
 using System;
@@ -213,6 +213,12 @@ namespace TemplateUtil
         public static void CreateURPUnlitFromTemplate()
         {
             CreateAtPath($"Templates/URPUnlit.shader.txt", "NewURPUnlit.shader");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Shader File/URP/HLSLExtension", isValidateFunction: false, priority: -96)]
+        public static void CreateHLSLExtensionFromTemplate()
+        {
+            CreateAtPath($"Templates/HLSLExtension.hlsl.txt", "NewHLSLExtension.hlsl");
         }
         
 #endif
