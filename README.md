@@ -48,6 +48,7 @@ Easily customizable Unity script templates\
 - Shader File
     - URP
         - URPUnlit
+        - HLSLExtension
 
 ## Usage
 When in the Project view in Unity, right click into the `Create` menu.\
