@@ -26,6 +26,11 @@
             "name": "com.unity.inputsystem",
             "expression": "1",
             "define": "UNITY_INPUTSYSTEM"
+        },
+        {
+            "name": "com.unity.jobs",
+            "expression": "0.7",
+            "define": "UNITY_JOBS"
         }
     ],
     "noEngineReferences": false

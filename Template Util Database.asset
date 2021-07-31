@@ -33,9 +33,16 @@ MonoBehaviour:
     - {fileID: 4900000, guid: cee56c27c4046419786c31549a4ab969, type: 3}
     - {fileID: 4900000, guid: 82a25e491cc814b2181bacb3f7aa2fc1, type: 3}
     - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}
+  - menuPath: Unity Script/Jobs
+    preprocessor: UNITY_JOBS
+    priority: -98
+    templateFiles:
+    - {fileID: 4900000, guid: 431c5b51fd42f4698974dcbe303f2ee6, type: 3}
+    - {fileID: 4900000, guid: 7248fbc6e6ef64c8694fbea0e9ee3a74, type: 3}
+    - {fileID: 4900000, guid: 46a38d680137946e588185677b823fd8, type: 3}
   - menuPath: Unity Script/Editor
     preprocessor: 
-    priority: -98
+    priority: -97
     templateFiles:
     - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
     - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
@@ -70,3 +77,4 @@ MonoBehaviour:
     priority: -96
     templateFiles:
     - {fileID: 4900000, guid: eeb2b3a038be1436891392a944aef2c9, type: 3}
+    - {fileID: 4900000, guid: 8ff2f649154884cb99525c37ada39568, type: 3}

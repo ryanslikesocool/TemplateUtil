@@ -31,16 +31,20 @@ Easily customizable Unity script templates\
     - Editor
         - Editor
         - EditorWindow
+    - Jobs
+        - Job (IJob)
+        - ForJob (IJobFor)
+        - ParallelForJob (IJobParallelFor)
 - DOTS Script
-    - AuthoringComponent
+    - AuthoringComponent (IConvertGameObjectToEntity)
     - Component
-        - Component
-        - BufferElementComponent
+        - Component (IComponentData)
+        - BufferElementComponent (IBufferElementData)
         - MaterialPropertyOverride
     - System
-        - System
-        - SystemGroup
-        - ConversionSystem
+        - System (SystemBase)
+        - SystemGroup (ComponentSystemGroup)
+        - ConversionSystem (GameObjectConversionSystem)
 - URP Script
     - RenderFeatureSettings
     - ScriptableRenderFeature

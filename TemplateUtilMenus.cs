@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-07-26 02:29:29
+// Generated on 2021-07-31 05:41:30
 
 #if UNITY_EDITOR
 using System;
@@ -111,15 +111,38 @@ namespace TemplateUtil
         }
         
 #endregion
+#region Unity Script/Jobs
+#if UNITY_JOBS
+
+        [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/Job", isValidateFunction: false, priority: -98)]
+        public static void CreateJobFromTemplate()
+        {
+            CreateAtPath($"Templates/Job.cs.txt", "NewJob.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/ForJob", isValidateFunction: false, priority: -98)]
+        public static void CreateForJobFromTemplate()
+        {
+            CreateAtPath($"Templates/ForJob.cs.txt", "NewForJob.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/ParallelForJob", isValidateFunction: false, priority: -98)]
+        public static void CreateParallelForJobFromTemplate()
+        {
+            CreateAtPath($"Templates/ParallelForJob.cs.txt", "NewParallelForJob.cs");
+        }
+        
+#endif
+#endregion
 #region Unity Script/Editor
 
-        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Editor", isValidateFunction: false, priority: -98)]
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Editor", isValidateFunction: false, priority: -97)]
         public static void CreateEditorFromTemplate()
         {
             CreateAtPath($"Templates/Editor.cs.txt", "NewEditor.cs");
         }
         
-        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/EditorWindow", isValidateFunction: false, priority: -98)]
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/EditorWindow", isValidateFunction: false, priority: -97)]
         public static void CreateEditorWindowFromTemplate()
         {
             CreateAtPath($"Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
