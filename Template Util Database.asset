@@ -18,6 +18,7 @@ MonoBehaviour:
     priority: -100
     templateFiles:
     - {fileID: 4900000, guid: 6ad2ed2cae96c4a5dbc58629be0ef398, type: 3}
+    - {fileID: 4900000, guid: 342fb51ddc8a3460cb5255e3fd030ec9, type: 3}
     - {fileID: 4900000, guid: df03f17c071064973ba96437fc2398f6, type: 3}
     - {fileID: 4900000, guid: d690c4da97816488ea29800baa139d21, type: 3}
     - {fileID: 4900000, guid: 6eb1d16e926d648e8b6abe1ca0c04a11, type: 3}
@@ -30,6 +31,7 @@ MonoBehaviour:
     priority: -99
     templateFiles:
     - {fileID: 4900000, guid: c04aaf122a364458994a5170482556f6, type: 3}
+    - {fileID: 4900000, guid: 3784166210bc7461f8540699231eb9ed, type: 3}
     - {fileID: 4900000, guid: cee56c27c4046419786c31549a4ab969, type: 3}
     - {fileID: 4900000, guid: 82a25e491cc814b2181bacb3f7aa2fc1, type: 3}
     - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}

@@ -1,4 +1,4 @@
-// Made with <3 by Ryan Boyer http://ryanjboyer.com
+// Made with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using UnityEngine;
@@ -17,6 +17,7 @@ namespace TemplateUtil
 
         private const string UTIL_CLASS = @"// {0}
 // Generated on {1}
+// Generated with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using System;

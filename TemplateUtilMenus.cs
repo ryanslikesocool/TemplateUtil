@@ -1,5 +1,6 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-07-31 05:41:30
+// Generated on 2021-10-09 01:02:11
+// Generated with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using System;
@@ -39,6 +40,12 @@ namespace TemplateUtil
         public static void CreateClassFromTemplate()
         {
             CreateAtPath($"Templates/Class.cs.txt", "NewClass.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/C# Script/PartialClass", isValidateFunction: false, priority: -100)]
+        public static void CreatePartialClassFromTemplate()
+        {
+            CreateAtPath($"Templates/PartialClass.cs.txt", "NewPartialClass.cs");
         }
         
         [MenuItem(itemName: "Assets/Create/C# Script/AbstractClass", isValidateFunction: false, priority: -100)]
@@ -90,6 +97,12 @@ namespace TemplateUtil
         public static void CreateMonoBehaviourFromTemplate()
         {
             CreateAtPath($"Templates/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
+        }
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/PartialMonoBehaviour", isValidateFunction: false, priority: -99)]
+        public static void CreatePartialMonoBehaviourFromTemplate()
+        {
+            CreateAtPath($"Templates/PartialMonoBehaviour.cs.txt", "NewPartialMonoBehaviour.cs");
         }
         
         [MenuItem(itemName: "Assets/Create/Unity Script/AbstractMonoBehaviour", isValidateFunction: false, priority: -99)]

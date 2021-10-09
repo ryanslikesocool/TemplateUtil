@@ -1,7 +1,7 @@
 {
     "name": "com.ifelse.templateutil",
     "displayName": "TemplateUtil",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "unity": "2020.3",
     "description": "Easily customizable Unity script templates.",
     "documentationUrl": "https://github.com/ryanslikesocool/TemplateUtil",
