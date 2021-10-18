@@ -2,26 +2,26 @@
 using UnityEngine;
 using UnityEditor;
 
-#ROOTNAMESPACEBEGIN#
-    [CustomEditor(typeof(/*BaseType*/))]
-    //[CanEditMultipleObjects]
-    public class #SCRIPTNAME# : Editor
+    #ROOTNAMESPACEBEGIN#
+[CustomEditor(typeof(/*BaseType*/))]
+//[CanEditMultipleObjects]
+public class #SCRIPTNAME# : Editor
+{
+    //SerializedProperty value;
+
+    public void OnEnable()
     {
-        //SerializedProperty value;
-
-        public void OnEnable()
-        {
-            //value = serializedObject.FindProperty("Value");
-        }
-
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
-
-            // EditorGUI content
-
-            serializedObject.ApplyModifiedProperties();
-        }
+        //value = serializedObject.FindProperty("Value");
     }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        // EditorGUI content
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
 #ROOTNAMESPACEEND#
 #endif

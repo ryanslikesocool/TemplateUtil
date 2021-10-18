@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-#ROOTNAMESPACEBEGIN#
-    [Serializable]
-    public class #SCRIPTNAME#
-    {
-        public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
-    }
+    #ROOTNAMESPACEBEGIN#
+[Serializable]
+public class #SCRIPTNAME#
+{
+    public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+}
 #ROOTNAMESPACEEND#

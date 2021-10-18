@@ -64,7 +64,7 @@ namespace TemplateUtil
         [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {2})]
         public static void Create{3}FromTemplate()
         {{
-            CreateAtPath($""Templates/{3}.{1}.txt"", ""New{3}.{1}"");
+            CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"");
         }}
         ";
         // 0 = menu path

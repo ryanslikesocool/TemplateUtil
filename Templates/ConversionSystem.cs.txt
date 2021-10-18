@@ -5,14 +5,14 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-#ROOTNAMESPACEBEGIN#
-    //[UpdateInGroup(typeof(GameObjectDeclareReferencedObjectsGroup))]
-    //[UpdateInGroup(typeof(GameObjectConversionGroup))]
-    public class #SCRIPTNAME# : GameObjectConversionSystem
+    #ROOTNAMESPACEBEGIN#
+//[UpdateInGroup(typeof(GameObjectDeclareReferencedObjectsGroup))]
+//[UpdateInGroup(typeof(GameObjectConversionGroup))]
+public class #SCRIPTNAME# : GameObjectConversionSystem
+{
+    protected override void OnUpdate()
     {
-        protected override void OnUpdate()
-        {
-            Entities.ForEach((IKSolverAuthoring input) => DeclareReferencedPrefab(input.targetPrefab.gameObject));
-        }
+        Entities.ForEach((IKSolverAuthoring input) => DeclareReferencedPrefab(input.targetPrefab.gameObject));
     }
+}
 #ROOTNAMESPACEEND#

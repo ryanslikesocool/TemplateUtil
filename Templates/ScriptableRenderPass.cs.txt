@@ -2,29 +2,29 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-#ROOTNAMESPACEBEGIN#
-    public class #SCRIPTNAME# : ScriptableRenderPass
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : ScriptableRenderPass
+{
+    private string profilerTag;
+
+    private #SCRIPTNAME#Settings settings;
+
+    public #SCRIPTNAME#(string profilerTag, #SCRIPTNAME#Settings settings)
     {
-        private string profilerTag;
-
-        private #SCRIPTNAME#Settings settings;
-
-        public #SCRIPTNAME#(string profilerTag, #SCRIPTNAME#Settings settings)
-        {
-            this.profilerTag = profilerTag;
-            this.settings = settings;
-            this.renderPassEvent = settings.renderPassEvent;
-        }
-
-        public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
-        {
-            CommandBuffer cmd = CommandBufferPool.Get(profilerTag);
-            ScriptableRenderer renderer = renderingData.cameraData.renderer;
-            // start rendering
-
-            // end rendering
-            context.ExecuteCommandBuffer(cmd);
-            CommandBufferPool.Release(cmd);
-        }
+        this.profilerTag = profilerTag;
+        this.settings = settings;
+        this.renderPassEvent = settings.renderPassEvent;
     }
+
+    public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
+    {
+        CommandBuffer cmd = CommandBufferPool.Get(profilerTag);
+        ScriptableRenderer renderer = renderingData.cameraData.renderer;
+        // start rendering
+
+        // end rendering
+        context.ExecuteCommandBuffer(cmd);
+        CommandBufferPool.Release(cmd);
+    }
+}
 #ROOTNAMESPACEEND#

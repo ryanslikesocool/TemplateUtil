@@ -6,9 +6,9 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using Unity.Physics.Systems;
 
-#ROOTNAMESPACEBEGIN#
-    [UpdateInGroup(typeof(T1))]
-    //[UpdateBefore(typeof(T2))]
-    //[UpdateAfter(typeof(T3))]
-    public class #SCRIPTNAME# : ComponentSystemGroup { }
+    #ROOTNAMESPACEBEGIN#
+[UpdateInGroup(typeof(T1))]
+//[UpdateBefore(typeof(T2))]
+//[UpdateAfter(typeof(T3))]
+public class #SCRIPTNAME# : ComponentSystemGroup { }
 #ROOTNAMESPACEEND#

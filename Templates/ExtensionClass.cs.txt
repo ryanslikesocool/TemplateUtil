@@ -1,8 +1,8 @@
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
-    public static class #SCRIPTNAME#
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+public static class #SCRIPTNAME#
+{
+    
+}
 #ROOTNAMESPACEEND#

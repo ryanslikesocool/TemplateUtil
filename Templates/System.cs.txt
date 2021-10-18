@@ -5,15 +5,15 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-#ROOTNAMESPACEBEGIN#
-    //[UpdateInGroup(typeof(T1))]
-    //[UpdateBefore(typeof(T2))]
-    //[UpdateAfter(typeof(T3))]
-    public class #SCRIPTNAME# : SystemBase
+    #ROOTNAMESPACEBEGIN#
+//[UpdateInGroup(typeof(T1))]
+//[UpdateBefore(typeof(T2))]
+//[UpdateAfter(typeof(T3))]
+public class #SCRIPTNAME# : SystemBase
+{
+    protected override void OnUpdate()
     {
-        protected override void OnUpdate()
-        {
-            
-        }
+        
     }
+}
 #ROOTNAMESPACEEND#

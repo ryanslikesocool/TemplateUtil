@@ -4,10 +4,10 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Rendering;
 
-#ROOTNAMESPACEBEGIN#
-    [Serializable, MaterialProperty("_#SCRIPTNAME#", MaterialPropertyFormat.Float)]
-    public struct #SCRIPTNAME# : IComponentData
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+[Serializable, MaterialProperty("_#SCRIPTNAME#", MaterialPropertyFormat.Float)]
+public struct #SCRIPTNAME# : IComponentData
+{
+    
+}
 #ROOTNAMESPACEEND#

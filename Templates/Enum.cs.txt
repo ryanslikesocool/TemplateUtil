@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
-    public enum #SCRIPTNAME#
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+public enum #SCRIPTNAME#
+{
+    
+}
 #ROOTNAMESPACEEND#

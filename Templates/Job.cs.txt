@@ -3,17 +3,17 @@ using Unity.Collections;
 using Unity.Jobs;
 //using Unity.Burst;
 
-#ROOTNAMESPACEBEGIN#
-    //[BurstCompile]
-    public struct #SCRIPTNAME# : IJob
+    #ROOTNAMESPACEBEGIN#
+//[BurstCompile]
+public struct #SCRIPTNAME# : IJob
+{
+    //[ReadOnly] public float Variable;
+    //[ReadOnly] public NativeArray<float> Input;
+    //[WriteOnly] public NativeArray<float> Output;
+
+    public void Execute()
     {
-        //[ReadOnly] public float Variable;
-        //[ReadOnly] public NativeArray<float> Input;
-        //[WriteOnly] public NativeArray<float> Output;
 
-        public void Execute()
-        {
-
-        }
     }
+}
 #ROOTNAMESPACEEND#

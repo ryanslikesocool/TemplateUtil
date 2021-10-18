@@ -1,8 +1,8 @@
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
-    public partial class #SCRIPTNAME#
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+public partial class #SCRIPTNAME#
+{
+    
+}
 #ROOTNAMESPACEEND#
