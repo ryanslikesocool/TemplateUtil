@@ -155,7 +155,6 @@ namespace TemplateUtil
                         string realExtension = finalComponents[1];
                         string filePrefix = finalComponents[0];
                         methodArray[j] = string.Format(UTIL_METHOD, $"{menuPath}/{filePrefix}", realExtension, priority, filePrefix);
-                        Debug.Log(methodArray[j]);
                     }
                 }
                 string methods = string.Join(string.Empty, methodArray);
@@ -186,9 +185,10 @@ namespace TemplateUtil
             string path = Path.Combine(dataPath, UTIL_FILE);
             File.WriteAllText(path, fileText);
 
-            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
+            string importPath = Path.Combine(isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
+            AssetDatabase.ImportAsset(importPath, ImportAssetOptions.ForceUpdate);
 
-            AssetDatabase.Refresh();
+            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
         }
     }
 }
