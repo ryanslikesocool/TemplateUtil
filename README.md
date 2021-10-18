@@ -16,6 +16,7 @@ Easily customizable Unity script templates\
 ## Prebuilt Templates
 - C# Script
     - Class
+    - PartialClass
     - AbstractClass
     - ExtensionClass
     - PartialExtensionClass
@@ -25,6 +26,7 @@ Easily customizable Unity script templates\
     - Attribute
 - Unity Script
     - MonoBehaviour
+    - PartialMonoBehaviour
     - MonoBehaviourInstance
     - AbstractMonoBehaviour
     - ScriptableObject
@@ -60,7 +62,7 @@ Select one of the script templates at the top of the list to create a new script
 
 ## Modifying/Adding Templates
 Templates are stored in `Assets/Plugins/TemplateUtil/Templates` as `.{type}.txt` files.\
-`{type}` can be replaced with `cs`, `shader`, and `hlsl`.  Better support for file extensions will be added in a future update.
+`{type}` can be replaced with any file extension.
 
 **Modifying Templates**\
 To modify a prebuilt template, modify the `.{type}.txt` file located in the template folder.  This should look about the same as a normal C# file.\
@@ -80,4 +82,5 @@ Open Window/TemplateUtil Manager.
 
 **Dynamic Text**\
 - `#SCRIPTNAME#`: The name of the file when created
-- `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#`: Wrapped around an object to automatically fill with the current scope's namespace.
+- `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#`: Wrapped around an object to automatically fill with the current assembly's namespace, if there is one.
+- `#NOTRIM#`: Disables automatically trimming whitespace
