@@ -39,16 +39,16 @@ namespace TemplateUtil
                 ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(ASSETS_PATH, path), newName);
                 return;
             }}
-            catch {{}}
-
-            try
-            {{
-                ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(PACKAGES_PATH, path), newName);
-                return;
+            catch {{
+                try
+                {{
+                    ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(PACKAGES_PATH, path), newName);
+                    return;
+                }}
+                catch  {{
+                    Debug.LogWarning(""Template file could not be found.  Please ensure that the template file is in the correct directory."");
+                }}
             }}
-            catch  {{}}
-
-            Debug.LogWarning(""Template file could not be found.  Please ensure that the template file is in the correct directory."");
         }}
 
         {2}
@@ -62,10 +62,7 @@ namespace TemplateUtil
 
         private const string UTIL_METHOD = @"
         [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {2})]
-        public static void Create{3}FromTemplate()
-        {{
-            CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"");
-        }}
+        public static void Create{3}FromTemplate() => CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"");
         ";
         // 0 = menu path
         // 1 = priority (less than -50 is best!)

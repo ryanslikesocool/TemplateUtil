@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-10-18 01:16:20
+// Generated on 2021-10-18 03:04:28
 // Generated with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
@@ -22,154 +22,94 @@ namespace TemplateUtil
                 ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(ASSETS_PATH, path), newName);
                 return;
             }
-            catch {}
-
-            try
-            {
-                ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(PACKAGES_PATH, path), newName);
-                return;
+            catch {
+                try
+                {
+                    ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(PACKAGES_PATH, path), newName);
+                    return;
+                }
+                catch  {
+                    Debug.LogWarning("Template file could not be found.  Please ensure that the template file is in the correct directory.");
+                }
             }
-            catch  {}
-
-            Debug.LogWarning("Template file could not be found.  Please ensure that the template file is in the correct directory.");
         }
 
         #region C# Script
 
         [MenuItem(itemName: "Assets/Create/C# Script/Class", isValidateFunction: false, priority: -100)]
-        public static void CreateClassFromTemplate()
-        {
-            CreateAtPath("Templates/Class.cs.txt", "NewClass.cs");
-        }
+        public static void CreateClassFromTemplate() => CreateAtPath("Templates/Class.cs.txt", "NewClass.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/PartialClass", isValidateFunction: false, priority: -100)]
-        public static void CreatePartialClassFromTemplate()
-        {
-            CreateAtPath("Templates/PartialClass.cs.txt", "NewPartialClass.cs");
-        }
+        public static void CreatePartialClassFromTemplate() => CreateAtPath("Templates/PartialClass.cs.txt", "NewPartialClass.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/AbstractClass", isValidateFunction: false, priority: -100)]
-        public static void CreateAbstractClassFromTemplate()
-        {
-            CreateAtPath("Templates/AbstractClass.cs.txt", "NewAbstractClass.cs");
-        }
+        public static void CreateAbstractClassFromTemplate() => CreateAtPath("Templates/AbstractClass.cs.txt", "NewAbstractClass.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/ExtensionClass", isValidateFunction: false, priority: -100)]
-        public static void CreateExtensionClassFromTemplate()
-        {
-            CreateAtPath("Templates/ExtensionClass.cs.txt", "NewExtensionClass.cs");
-        }
+        public static void CreateExtensionClassFromTemplate() => CreateAtPath("Templates/ExtensionClass.cs.txt", "NewExtensionClass.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/PartialExtensionClass", isValidateFunction: false, priority: -100)]
-        public static void CreatePartialExtensionClassFromTemplate()
-        {
-            CreateAtPath("Templates/PartialExtensionClass.cs.txt", "NewPartialExtensionClass.cs");
-        }
+        public static void CreatePartialExtensionClassFromTemplate() => CreateAtPath("Templates/PartialExtensionClass.cs.txt", "NewPartialExtensionClass.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/Struct", isValidateFunction: false, priority: -100)]
-        public static void CreateStructFromTemplate()
-        {
-            CreateAtPath("Templates/Struct.cs.txt", "NewStruct.cs");
-        }
+        public static void CreateStructFromTemplate() => CreateAtPath("Templates/Struct.cs.txt", "NewStruct.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/Interface", isValidateFunction: false, priority: -100)]
-        public static void CreateInterfaceFromTemplate()
-        {
-            CreateAtPath("Templates/Interface.cs.txt", "NewInterface.cs");
-        }
+        public static void CreateInterfaceFromTemplate() => CreateAtPath("Templates/Interface.cs.txt", "NewInterface.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/Enum", isValidateFunction: false, priority: -100)]
-        public static void CreateEnumFromTemplate()
-        {
-            CreateAtPath("Templates/Enum.cs.txt", "NewEnum.cs");
-        }
+        public static void CreateEnumFromTemplate() => CreateAtPath("Templates/Enum.cs.txt", "NewEnum.cs");
         
         [MenuItem(itemName: "Assets/Create/C# Script/Attribute", isValidateFunction: false, priority: -100)]
-        public static void CreateAttributeFromTemplate()
-        {
-            CreateAtPath("Templates/Attribute.cs.txt", "NewAttribute.cs");
-        }
+        public static void CreateAttributeFromTemplate() => CreateAtPath("Templates/Attribute.cs.txt", "NewAttribute.cs");
         
 #endregion
 #region Unity Script
 
         [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviour", isValidateFunction: false, priority: -99)]
-        public static void CreateMonoBehaviourFromTemplate()
-        {
-            CreateAtPath("Templates/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
-        }
+        public static void CreateMonoBehaviourFromTemplate() => CreateAtPath("Templates/MonoBehaviour.cs.txt", "NewMonoBehaviour.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/PartialMonoBehaviour", isValidateFunction: false, priority: -99)]
-        public static void CreatePartialMonoBehaviourFromTemplate()
-        {
-            CreateAtPath("Templates/PartialMonoBehaviour.cs.txt", "NewPartialMonoBehaviour.cs");
-        }
+        public static void CreatePartialMonoBehaviourFromTemplate() => CreateAtPath("Templates/PartialMonoBehaviour.cs.txt", "NewPartialMonoBehaviour.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/AbstractMonoBehaviour", isValidateFunction: false, priority: -99)]
-        public static void CreateAbstractMonoBehaviourFromTemplate()
-        {
-            CreateAtPath("Templates/AbstractMonoBehaviour.cs.txt", "NewAbstractMonoBehaviour.cs");
-        }
+        public static void CreateAbstractMonoBehaviourFromTemplate() => CreateAtPath("Templates/AbstractMonoBehaviour.cs.txt", "NewAbstractMonoBehaviour.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/MonoBehaviourInstance", isValidateFunction: false, priority: -99)]
-        public static void CreateMonoBehaviourInstanceFromTemplate()
-        {
-            CreateAtPath("Templates/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
-        }
+        public static void CreateMonoBehaviourInstanceFromTemplate() => CreateAtPath("Templates/MonoBehaviourInstance.cs.txt", "NewMonoBehaviourInstance.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/ScriptableObject", isValidateFunction: false, priority: -99)]
-        public static void CreateScriptableObjectFromTemplate()
-        {
-            CreateAtPath("Templates/ScriptableObject.cs.txt", "NewScriptableObject.cs");
-        }
+        public static void CreateScriptableObjectFromTemplate() => CreateAtPath("Templates/ScriptableObject.cs.txt", "NewScriptableObject.cs");
         
 #endregion
 #region Unity Script/Jobs
 #if UNITY_JOBS
 
         [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/Job", isValidateFunction: false, priority: -98)]
-        public static void CreateJobFromTemplate()
-        {
-            CreateAtPath("Templates/Job.cs.txt", "NewJob.cs");
-        }
+        public static void CreateJobFromTemplate() => CreateAtPath("Templates/Job.cs.txt", "NewJob.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/ForJob", isValidateFunction: false, priority: -98)]
-        public static void CreateForJobFromTemplate()
-        {
-            CreateAtPath("Templates/ForJob.cs.txt", "NewForJob.cs");
-        }
+        public static void CreateForJobFromTemplate() => CreateAtPath("Templates/ForJob.cs.txt", "NewForJob.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/Jobs/ParallelForJob", isValidateFunction: false, priority: -98)]
-        public static void CreateParallelForJobFromTemplate()
-        {
-            CreateAtPath("Templates/ParallelForJob.cs.txt", "NewParallelForJob.cs");
-        }
+        public static void CreateParallelForJobFromTemplate() => CreateAtPath("Templates/ParallelForJob.cs.txt", "NewParallelForJob.cs");
         
 #endif
 #endregion
 #region Unity Script/Editor
 
         [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Editor", isValidateFunction: false, priority: -97)]
-        public static void CreateEditorFromTemplate()
-        {
-            CreateAtPath("Templates/Editor.cs.txt", "NewEditor.cs");
-        }
+        public static void CreateEditorFromTemplate() => CreateAtPath("Templates/Editor.cs.txt", "NewEditor.cs");
         
         [MenuItem(itemName: "Assets/Create/Unity Script/Editor/EditorWindow", isValidateFunction: false, priority: -97)]
-        public static void CreateEditorWindowFromTemplate()
-        {
-            CreateAtPath("Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
-        }
+        public static void CreateEditorWindowFromTemplate() => CreateAtPath("Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
         
 #endregion
 #region DOTS Script
 #if UNITY_DOTS
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/AuthoringComponent", isValidateFunction: false, priority: -98)]
-        public static void CreateAuthoringComponentFromTemplate()
-        {
-            CreateAtPath("Templates/AuthoringComponent.cs.txt", "NewAuthoringComponent.cs");
-        }
+        public static void CreateAuthoringComponentFromTemplate() => CreateAtPath("Templates/AuthoringComponent.cs.txt", "NewAuthoringComponent.cs");
         
 #endif
 #endregion
@@ -177,22 +117,13 @@ namespace TemplateUtil
 #if UNITY_DOTS
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/Component/Component", isValidateFunction: false, priority: -98)]
-        public static void CreateComponentFromTemplate()
-        {
-            CreateAtPath("Templates/Component.cs.txt", "NewComponent.cs");
-        }
+        public static void CreateComponentFromTemplate() => CreateAtPath("Templates/Component.cs.txt", "NewComponent.cs");
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/Component/BufferElementComponent", isValidateFunction: false, priority: -98)]
-        public static void CreateBufferElementComponentFromTemplate()
-        {
-            CreateAtPath("Templates/BufferElementComponent.cs.txt", "NewBufferElementComponent.cs");
-        }
+        public static void CreateBufferElementComponentFromTemplate() => CreateAtPath("Templates/BufferElementComponent.cs.txt", "NewBufferElementComponent.cs");
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/Component/MaterialPropertyOverride", isValidateFunction: false, priority: -98)]
-        public static void CreateMaterialPropertyOverrideFromTemplate()
-        {
-            CreateAtPath("Templates/MaterialPropertyOverride.cs.txt", "NewMaterialPropertyOverride.cs");
-        }
+        public static void CreateMaterialPropertyOverrideFromTemplate() => CreateAtPath("Templates/MaterialPropertyOverride.cs.txt", "NewMaterialPropertyOverride.cs");
         
 #endif
 #endregion
@@ -200,22 +131,13 @@ namespace TemplateUtil
 #if UNITY_DOTS
 
         [MenuItem(itemName: "Assets/Create/DOTS Script/System/System", isValidateFunction: false, priority: -98)]
-        public static void CreateSystemFromTemplate()
-        {
-            CreateAtPath("Templates/System.cs.txt", "NewSystem.cs");
-        }
+        public static void CreateSystemFromTemplate() => CreateAtPath("Templates/System.cs.txt", "NewSystem.cs");
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/System/SystemGroup", isValidateFunction: false, priority: -98)]
-        public static void CreateSystemGroupFromTemplate()
-        {
-            CreateAtPath("Templates/SystemGroup.cs.txt", "NewSystemGroup.cs");
-        }
+        public static void CreateSystemGroupFromTemplate() => CreateAtPath("Templates/SystemGroup.cs.txt", "NewSystemGroup.cs");
         
         [MenuItem(itemName: "Assets/Create/DOTS Script/System/ConversionSystem", isValidateFunction: false, priority: -98)]
-        public static void CreateConversionSystemFromTemplate()
-        {
-            CreateAtPath("Templates/ConversionSystem.cs.txt", "NewConversionSystem.cs");
-        }
+        public static void CreateConversionSystemFromTemplate() => CreateAtPath("Templates/ConversionSystem.cs.txt", "NewConversionSystem.cs");
         
 #endif
 #endregion
@@ -223,22 +145,13 @@ namespace TemplateUtil
 #if UNITY_URP
 
         [MenuItem(itemName: "Assets/Create/URP Script/RenderFeatureSettings", isValidateFunction: false, priority: -97)]
-        public static void CreateRenderFeatureSettingsFromTemplate()
-        {
-            CreateAtPath("Templates/RenderFeatureSettings.cs.txt", "NewRenderFeatureSettings.cs");
-        }
+        public static void CreateRenderFeatureSettingsFromTemplate() => CreateAtPath("Templates/RenderFeatureSettings.cs.txt", "NewRenderFeatureSettings.cs");
         
         [MenuItem(itemName: "Assets/Create/URP Script/ScriptableRendererFeature", isValidateFunction: false, priority: -97)]
-        public static void CreateScriptableRendererFeatureFromTemplate()
-        {
-            CreateAtPath("Templates/ScriptableRendererFeature.cs.txt", "NewScriptableRendererFeature.cs");
-        }
+        public static void CreateScriptableRendererFeatureFromTemplate() => CreateAtPath("Templates/ScriptableRendererFeature.cs.txt", "NewScriptableRendererFeature.cs");
         
         [MenuItem(itemName: "Assets/Create/URP Script/ScriptableRenderPass", isValidateFunction: false, priority: -97)]
-        public static void CreateScriptableRenderPassFromTemplate()
-        {
-            CreateAtPath("Templates/ScriptableRenderPass.cs.txt", "NewScriptableRenderPass.cs");
-        }
+        public static void CreateScriptableRenderPassFromTemplate() => CreateAtPath("Templates/ScriptableRenderPass.cs.txt", "NewScriptableRenderPass.cs");
         
 #endif
 #endregion
@@ -246,16 +159,10 @@ namespace TemplateUtil
 #if UNITY_URP
 
         [MenuItem(itemName: "Assets/Create/Shader File/URP/URPUnlit", isValidateFunction: false, priority: -96)]
-        public static void CreateURPUnlitFromTemplate()
-        {
-            CreateAtPath("Templates/URPUnlit.shader.txt", "NewURPUnlit.shader");
-        }
+        public static void CreateURPUnlitFromTemplate() => CreateAtPath("Templates/URPUnlit.shader.txt", "NewURPUnlit.shader");
         
         [MenuItem(itemName: "Assets/Create/Shader File/URP/HLSLExtension", isValidateFunction: false, priority: -96)]
-        public static void CreateHLSLExtensionFromTemplate()
-        {
-            CreateAtPath("Templates/HLSLExtension.hlsl.txt", "NewHLSLExtension.hlsl");
-        }
+        public static void CreateHLSLExtensionFromTemplate() => CreateAtPath("Templates/HLSLExtension.hlsl.txt", "NewHLSLExtension.hlsl");
         
 #endif
 #endregion
