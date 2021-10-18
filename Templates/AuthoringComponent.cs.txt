@@ -2,13 +2,13 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
-    [DisallowMultipleComponent]
-    public class #SCRIPTNAME# : MonoBehaviour, IConvertGameObjectToEntity
+    #ROOTNAMESPACEBEGIN#
+[DisallowMultipleComponent]
+public class #SCRIPTNAME# : MonoBehaviour, IConvertGameObjectToEntity
+{
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
-        {
-            
-        }
+        
     }
+}
 #ROOTNAMESPACEEND#

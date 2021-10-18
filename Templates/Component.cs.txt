@@ -3,10 +3,10 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Mathematics;
 
-#ROOTNAMESPACEBEGIN#
-    [Serializable]
-    public struct #SCRIPTNAME# : IComponentData
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+[Serializable]
+public struct #SCRIPTNAME# : IComponentData
+{
+    
+}
 #ROOTNAMESPACEEND#

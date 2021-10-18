@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-#ROOTNAMESPACEBEGIN#
-    [Serializable]
-    public struct #SCRIPTNAME#
-    {
-        
-    }
+    #ROOTNAMESPACEBEGIN#
+[Serializable]
+public struct #SCRIPTNAME#
+{
+    
+}
 #ROOTNAMESPACEEND#

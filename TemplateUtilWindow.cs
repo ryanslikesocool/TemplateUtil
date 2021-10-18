@@ -1,4 +1,4 @@
-// Made with love by Ryan Boyer http://ryanjboyer.com <3
+// Developed with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using UnityEngine;
@@ -60,25 +60,11 @@ namespace TemplateUtil
         // 1 = date and time generated
         // 2 = util methods
 
-        private const string CS_UTIL_METHOD = @"
-        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
-        public static void Create{2}FromTemplate()
+        private const string UTIL_METHOD = @"
+        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {2})]
+        public static void Create{3}FromTemplate()
         {{
-            CreateAtPath($""Templates/{2}.cs.txt"", ""New{2}.cs"");
-        }}
-        ";
-        private const string SHADER_UTIL_METHOD = @"
-        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
-        public static void Create{2}FromTemplate()
-        {{
-            CreateAtPath($""Templates/{2}.shader.txt"", ""New{2}.shader"");
-        }}
-        ";
-        private const string HLSL_UTIL_METHOD = @"
-        [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {1})]
-        public static void Create{2}FromTemplate()
-        {{
-            CreateAtPath($""Templates/{2}.hlsl.txt"", ""New{2}.hlsl"");
+            CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"");
         }}
         ";
         // 0 = menu path
@@ -162,20 +148,13 @@ namespace TemplateUtil
                 {
                     string filePath = AssetDatabase.GetAssetPath(templateFiles[j]);
                     string[] components = filePath.Split('/');
-                    if (components[components.Length - 1].Contains(".cs.txt"))
+                    string[] finalComponents = components[components.Length - 1].Split('.');
+
+                    if (finalComponents.Length == 3 && finalComponents[finalComponents.Length - 1] == "txt")
                     {
-                        string filePrefix = components[components.Length - 1].Replace(".cs.txt", string.Empty);
-                        methodArray[j] = string.Format(CS_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
-                    }
-                    else if (components[components.Length - 1].Contains(".shader.txt"))
-                    {
-                        string filePrefix = components[components.Length - 1].Replace(".shader.txt", string.Empty);
-                        methodArray[j] = string.Format(SHADER_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
-                    }
-                    else if (components[components.Length - 1].Contains(".hlsl.txt"))
-                    {
-                        string filePrefix = components[components.Length - 1].Replace(".hlsl.txt", string.Empty);
-                        methodArray[j] = string.Format(HLSL_UTIL_METHOD, $"{menuPath}/{filePrefix}", priority, filePrefix);
+                        string realExtension = finalComponents[1];
+                        string filePrefix = finalComponents[0];
+                        methodArray[j] = string.Format(UTIL_METHOD, $"{menuPath}/{filePrefix}", realExtension, priority, filePrefix);
                     }
                 }
                 string methods = string.Join(string.Empty, methodArray);
@@ -206,9 +185,10 @@ namespace TemplateUtil
             string path = Path.Combine(dataPath, UTIL_FILE);
             File.WriteAllText(path, fileText);
 
-            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
+            string importPath = Path.Combine(isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
+            AssetDatabase.ImportAsset(importPath, ImportAssetOptions.ForceUpdate);
 
-            AssetDatabase.Refresh();
+            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
         }
     }
 }
