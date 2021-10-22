@@ -6,13 +6,14 @@ using UnityEngine;
 
 namespace TemplateUtil
 {
-    public class TemplateUtilDatabase : ScriptableObject
+    public class TemplateDatabase : ScriptableObject
     {
         [Serializable]
         public struct TemplateFolder
         {
             public string menuPath;
             public string preprocessor;
+            public bool autoNamespace;
             public int priority;
             public TextAsset[] templateFiles;
         }
