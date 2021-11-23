@@ -32,59 +32,26 @@ namespace TemplateUtil
             try
             {{
                 filePath = Path.Combine(ASSETS_PATH, path);
-                ProjectWindowUtil.CreateScriptAssetFromTemplateFile(filePath, newName);
-            }}
-            catch {{
-                try
-                {{
-                    filePath = Path.Combine(PACKAGES_PATH, path);
-                    ProjectWindowUtil.CreateScriptAssetFromTemplateFile(filePath, newName);
-                }}
-                catch  {{
-                    filePath = null;
-                    Debug.LogWarning($""Template file at path {{path}} could not be found.  Please ensure that the template file is in the correct directory."");
-                }}
-            }}
-
-            if (autoNamespace && filePath != null) {{
-                TryApplyNamespace(filePath);
-            }}
-        }}
-
-        private static void TryApplyNamespace(string filePath) {{
-            string[] lines = File.ReadAllLines(filePath);
-            int lineIndex = -1;
-            string[] namespaceParts = null;
-            
-            for (int i = 0; i < lines.Length; i++) {{
-                if (lines[i].StartsWith(""namespace"")) {{
-                    lineIndex = i;
-                    namespaceParts = lines[i].Split(' ');
-                }}
-            }}
-
-            if (lineIndex == -1) {{
-                Debug.Log($""No namespace could be found in the new script.\n{{File.ReadAllText(filePath)}}"");
+                Extensions.CreateScriptAssetFromTemplateFile(filePath, newName, autoNamespace);
                 return;
             }}
-
-            Debug.Log($""Found namespace {{namespaceParts[1]}} at {{lineIndex}}"");
-
-            string[] components = filePath.Split('/');
-            string newNamespace = namespaceParts[1];
-
-            for (int i = 0; i < components.Length - 1; i++) {{
-                if (components[i] == newNamespace) {{
-                    for (int j = i; j < components.Length - 1; j++) {{
-                        newNamespace += $"".{{components[j]}}"";
-                    }}
-                    break;
-                }}
+            catch (System.Exception error)
+            {{
+                filePath = null;
+                Debug.LogWarning($""Template file at path {{path}} could not be found.  Please ensure that the template file is in the correct directory.\n{{error}}"");
             }}
 
-            namespaceParts[1] = newNamespace;
-
-            lines[lineIndex] = string.Join("" "", namespaceParts);
+            try
+            {{
+                filePath = Path.Combine(PACKAGES_PATH, path);
+                Extensions.CreateScriptAssetFromTemplateFile(filePath, newName, autoNamespace);
+                return;
+            }}
+            catch (System.Exception error)
+            {{
+                filePath = null;
+                Debug.LogWarning($""Template file at path {{path}} could not be found.  Please ensure that the template file is in the correct directory.\n{{error}}"");
+            }}
         }}
 
         {2}

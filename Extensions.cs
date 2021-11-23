@@ -14,12 +14,16 @@ namespace TemplateUtil
 {
     internal static class Extensions
     {
-        internal static void CreateScriptAssetFromTemplateFile(string templatePath, string defaultNewFileName, Action onEndEditing)
+        internal static void CreateScriptAssetFromTemplateFile(string templatePath, string defaultNewFileName, bool autoNamespace)
         {
             if (templatePath == null)
+            {
                 throw new ArgumentNullException(nameof(templatePath));
+            }
             if (!File.Exists(templatePath))
+            {
                 throw new FileNotFoundException($"The template file \"{templatePath}\" could not be found.", templatePath);
+            }
 
             if (string.IsNullOrEmpty(defaultNewFileName))
                 defaultNewFileName = Path.GetFileName(templatePath);
@@ -43,53 +47,65 @@ namespace TemplateUtil
                     icon = IconContent<TextAsset>().image as Texture2D;
                     break;
             }
-            DoCreateScriptAsset createScriptAsset = ScriptableObject.CreateInstance<DoCreateScriptAsset>();
-            createScriptAsset.onEndEditing = onEndEditing;
-            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0, createScriptAsset, defaultNewFileName, icon, templatePath);
+
+            if (autoNamespace)
+            {
+                string[] originalLines = File.ReadAllLines(templatePath);
+                TryApplyNamespace(templatePath, originalLines);
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0, ScriptableObject.CreateInstance<DoCreateScriptAsset>(), defaultNewFileName, icon, templatePath);
+                File.WriteAllLines(templatePath, originalLines);
+            }
+            else
+            {
+                ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0, ScriptableObject.CreateInstance<DoCreateScriptAsset>(), defaultNewFileName, icon, templatePath);
+            }
         }
 
-        internal static void TryApplyNamespace(bool autoNamespace, string filePath)
+        internal static void TryApplyNamespace(string filePath, string[] lines)
         {
-            if (!autoNamespace || filePath == null) { return; }
+            if (filePath == null || lines == null) { return; }
 
-            string[] lines = File.ReadAllLines(filePath);
             int lineIndex = -1;
-            string[] namespaceParts = null;
+            string namespaceLine = null;
 
             for (int i = 0; i < lines.Length; i++)
             {
-                if (lines[i].StartsWith("namespace"))
+                if (lines[i].StartsWith("    #ROOTNAMESPACEBEGIN#"))
                 {
                     lineIndex = i;
-                    namespaceParts = lines[i].Split(' ');
+                    namespaceLine = lines[i];
                 }
-                //break;
-                Debug.Log(lines[i]);
             }
 
-            if (lineIndex == -1)
-            {
-                return;
-            }
+            if (lineIndex == -1) { return; }
 
             string[] components = filePath.Split('/');
-            string newNamespace = namespaceParts[1];
-
-            for (int i = 0; i < components.Length - 1; i++)
+            string localPath = filePath.TrimSuffix(components[components.Length - 1]);
+            int asmdefStartIndex = -1;
+            for (int i = components.Length - 2; i >= 0; i--)
             {
-                if (components[i] == newNamespace)
+                Debug.Log($"{localPath} && {components[i]}");
+
+                //FIXME: im thinking that GetFiles uses global location, and not relative to the project
+                if (Directory.GetFiles(localPath, "*.asmdef", SearchOption.TopDirectoryOnly).Length > 0)
                 {
-                    for (int j = i; j < components.Length - 1; j++)
-                    {
-                        newNamespace += $".{components[j]}";
-                    }
+                    asmdefStartIndex = i + 1;
                     break;
                 }
+                localPath = localPath.TrimSuffix(components[i]);
             }
 
-            namespaceParts[1] = newNamespace;
+            if (asmdefStartIndex == -1) { return; }
 
-            lines[lineIndex] = string.Join(" ", namespaceParts);
+            string asmdefStartPath = string.Empty;
+            for (int i = asmdefStartIndex; i < components.Length - 1; i++)
+            {
+                asmdefStartPath += $".{components[i]}";
+            }
+
+            lines[lineIndex] = namespaceLine + asmdefStartPath;
+
+            Debug.Log(lines[lineIndex]);
 
             File.WriteAllLines(filePath, lines);
         }
@@ -98,6 +114,18 @@ namespace TemplateUtil
         {
             Texture2D texture = typeof(EditorGUIUtility).GetMethod("FindTexture").Invoke(null, new object[] { typeof(T) }) as Texture2D;
             return typeof(EditorGUIUtility).GetMethod("IconContent").Invoke(null, new object[] { texture, text }) as GUIContent;
+        }
+
+        internal static string TrimSuffix(this string s, string suffix)
+        {
+            if (s.EndsWith(suffix))
+            {
+                return s.Substring(0, s.Length - suffix.Length);
+            }
+            else
+            {
+                return s;
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 {
-    "name": "com.ifelse.templateutil",
+    "name": "com.developedwithlove.templateutil",
     "displayName": "TemplateUtil",
     "version": "2.0.0",
     "unity": "2020.3",
@@ -11,5 +11,5 @@
         "email": "ryanjboyer@gmail.com",
         "url": "http://ryanjboyer.com/"
     },
-    "type": "library"
+    "type": "tool"
 }

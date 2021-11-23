@@ -45,7 +45,7 @@ namespace TemplateUtil
             string importPath = Path.Combine(isPackage ? PACKAGES_PATH : ASSETS_PATH, UTIL_FILE);
             AssetDatabase.ImportAsset(importPath, ImportAssetOptions.ForceUpdate);
 
-            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading asset database...");
+            Debug.Log($"Generated {UTIL_FILE} at {dateTime}.  Reloading the generated script...");
         }
     }
 }
