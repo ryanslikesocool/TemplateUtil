@@ -3,8 +3,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
     #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : ScriptableRenderPass
-{
+public class #SCRIPTNAME# : ScriptableRenderPass {
     private string profilerTag;
 
     private #SCRIPTNAME#Settings settings;

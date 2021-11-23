@@ -1,8 +1,7 @@
 using UnityEngine;
 
-    #ROOTNAMESPACEBEGIN#.Assets.Plugins.TemplateUtil.Templates
-public class #SCRIPTNAME#
-{
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# {
     
 }
 #ROOTNAMESPACEEND#

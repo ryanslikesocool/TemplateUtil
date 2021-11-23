@@ -4,13 +4,10 @@
 using System;
 using UnityEngine;
 
-namespace TemplateUtil
-{
-    public class TemplateDatabase : ScriptableObject
-    {
+namespace TemplateUtil {
+    public sealed class TemplateDatabase : ScriptableObject {
         [Serializable]
-        public struct TemplateFolder
-        {
+        public struct TemplateFolder {
             public string menuPath;
             public string preprocessor;
             public bool autoNamespace;

@@ -6,36 +6,30 @@ using UnityEditor;
 using System;
 using System.IO;
 
-namespace TemplateUtil
-{
+namespace TemplateUtil {
     [CustomEditor(typeof(TemplateDatabase))]
-    internal class TemplateUtilWindow : Editor
-    {
+    internal sealed class TemplateUtilWindow : Editor {
         private const string ASSETS_PATH = "Assets/Plugins/TemplateUtil";
-        private const string PACKAGES_PATH = "Packages/com.ifelse.templateutil";
+        private const string PACKAGES_PATH = "Packages/com.developedwithlove.templateutil";
 
         public const string UTIL_FILE = "TemplateUtilMenus.cs";
 
-        public override void OnInspectorGUI()
-        {
+        public override void OnInspectorGUI() {
             base.DrawDefaultInspector();
 
-            if (GUILayout.Button($"Generate {UTIL_FILE}", GUILayout.Height(48)))
-            {
+            if (GUILayout.Button($"Generate {UTIL_FILE}", GUILayout.Height(48))) {
                 RegenerateTemplateUtilFile();
             }
         }
 
-        private void RegenerateTemplateUtilFile()
-        {
+        private void RegenerateTemplateUtilFile() {
             string fileText = CodeGen.GenerateFileText((TemplateDatabase)target, out string dateTime);
 
             string dataPath = Application.dataPath.Replace("Assets", string.Empty);
             bool isPackage = File.Exists(Path.Combine(dataPath, PACKAGES_PATH));
             dataPath = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH);
 
-            if (!File.Exists(dataPath))
-            {
+            if (!File.Exists(dataPath)) {
                 Directory.CreateDirectory(dataPath);
             }
 

@@ -5,8 +5,7 @@ using Unity.Mathematics;
 
     #ROOTNAMESPACEBEGIN#
 [Serializable, InternalBufferCapacity(x)]
-public struct #SCRIPTNAME# : IBufferElementData
-{
+public struct #SCRIPTNAME# : IBufferElementData {
     public T Value;
 
     public static implicit operator T(#SCRIPTNAME# b) { return b.Value; }

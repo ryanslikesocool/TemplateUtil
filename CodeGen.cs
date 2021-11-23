@@ -4,12 +4,9 @@
 using UnityEngine;
 using UnityEditor;
 using System;
-using System.IO;
 
-namespace TemplateUtil
-{
-    internal static class CodeGen
-    {
+namespace TemplateUtil {
+    internal static class CodeGen {
         private const string UTIL_CLASS = @"// {0}
 // Generated on {1}
 // Generated with love by Ryan Boyer http://ryanjboyer.com <3
@@ -19,42 +16,9 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace TemplateUtil
-{{
-    public static class TemplateUtilMenus
-    {{
-        private const string ASSETS_PATH = ""Assets/Plugins/TemplateUtil"";
-        private const string PACKAGES_PATH = ""Packages/com.ifelse.templateutil"";
-        
-        private static void CreateAtPath(string path, string newName, bool autoNamespace)
-        {{
-            string filePath;
-            try
-            {{
-                filePath = Path.Combine(ASSETS_PATH, path);
-                Extensions.CreateScriptAssetFromTemplateFile(filePath, newName, autoNamespace);
-                return;
-            }}
-            catch (System.Exception error)
-            {{
-                filePath = null;
-                Debug.LogWarning($""Template file at path {{path}} could not be found.  Please ensure that the template file is in the correct directory.\n{{error}}"");
-            }}
-
-            try
-            {{
-                filePath = Path.Combine(PACKAGES_PATH, path);
-                Extensions.CreateScriptAssetFromTemplateFile(filePath, newName, autoNamespace);
-                return;
-            }}
-            catch (System.Exception error)
-            {{
-                filePath = null;
-                Debug.LogWarning($""Template file at path {{path}} could not be found.  Please ensure that the template file is in the correct directory.\n{{error}}"");
-            }}
-        }}
-
-        {2}
+namespace TemplateUtil {{
+    internal static class TemplateUtilMenus {{
+{2}
     }}
 }}
 #endif";
@@ -64,7 +28,7 @@ namespace TemplateUtil
 
         private const string UTIL_METHOD = @"
         [MenuItem(itemName: ""Assets/Create/{0}"", isValidateFunction: false, priority: {2})]
-        public static void Create{3}FromTemplate() => CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"", {4});
+        internal static void Create{3}FromTemplate() => Extensions.CreateAtPath(""Templates/{3}.{1}.txt"", ""New{3}.{1}"", {4});
         ";
         // 0 = menu path
         // 1 = file extension
@@ -78,12 +42,10 @@ namespace TemplateUtil
         private const string REGION_START = "#region";
         private const string REGION_END = "#endregion";
 
-        public static string GenerateFileText(TemplateDatabase database, out string dateTime)
-        {
+        public static string GenerateFileText(TemplateDatabase database, out string dateTime) {
             string[] folderText = new string[database.folders.Length];
 
-            for (int i = 0; i < folderText.Length; i++)
-            {
+            for (int i = 0; i < folderText.Length; i++) {
                 folderText[i] = GenerateFolderText(database.folders[i]);
             }
 
@@ -92,8 +54,7 @@ namespace TemplateUtil
             return string.Format(UTIL_CLASS, TemplateUtilWindow.UTIL_FILE, dateTime, allMethods);
         }
 
-        private static string GenerateFolderText(TemplateDatabase.TemplateFolder folder)
-        {
+        private static string GenerateFolderText(TemplateDatabase.TemplateFolder folder) {
             string menuPath = folder.menuPath;
             string preprocessor = folder.preprocessor;
             string autoNamespace = folder.autoNamespace.ToString().ToLower();
@@ -101,14 +62,12 @@ namespace TemplateUtil
             TextAsset[] templateFiles = folder.templateFiles;
 
             string[] methodArray = new string[templateFiles.Length];
-            for (int j = 0; j < methodArray.Length; j++)
-            {
+            for (int j = 0; j < methodArray.Length; j++) {
                 string filePath = AssetDatabase.GetAssetPath(templateFiles[j]);
                 string[] components = filePath.Split('/');
                 string[] finalComponents = components[components.Length - 1].Split('.');
 
-                if (finalComponents.Length == 3 && finalComponents[finalComponents.Length - 1] == "txt")
-                {
+                if (finalComponents.Length == 3 && finalComponents[finalComponents.Length - 1] == "txt") {
                     string realExtension = finalComponents[1];
                     string filePrefix = finalComponents[0];
                     methodArray[j] = string.Format(UTIL_METHOD, $"{menuPath}/{filePrefix}", realExtension, priority, filePrefix, autoNamespace);
@@ -117,11 +76,10 @@ namespace TemplateUtil
             string methods = string.Join(string.Empty, methodArray);
 
             string folderText = string.Join(string.Empty, methods);
-            if (preprocessor != string.Empty)
-            {
+            if (preprocessor != string.Empty) {
                 folderText = $"{PREPROCESSOR_START} {preprocessor}\n{folderText}\n{PREPROCESSOR_END}";
             }
-            folderText = $"{REGION_START} {menuPath}\n{folderText}\n{REGION_END}";
+            folderText = $"\t\t{REGION_START} {menuPath}\n{folderText}\n\t\t{REGION_END}\n";
             return folderText;
         }
     }

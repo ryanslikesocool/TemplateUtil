@@ -2,8 +2,7 @@ using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
 [CreateAssetMenu(menuName = "#SCRIPTNAME#", fileName = "New #SCRIPTNAME#")]
-public class #SCRIPTNAME# : ScriptableObject
-{
+public class #SCRIPTNAME# : ScriptableObject {
 
 }
 #ROOTNAMESPACEEND#

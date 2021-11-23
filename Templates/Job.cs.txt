@@ -5,14 +5,12 @@ using Unity.Jobs;
 
     #ROOTNAMESPACEBEGIN#
 //[BurstCompile]
-public struct #SCRIPTNAME# : IJob
-{
+public struct #SCRIPTNAME# : IJob {
     //[ReadOnly] public float Variable;
     //[ReadOnly] public NativeArray<float> Input;
     //[WriteOnly] public NativeArray<float> Output;
 
-    public void Execute()
-    {
+    public void Execute() {
 
     }
 }

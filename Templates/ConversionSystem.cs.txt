@@ -8,10 +8,8 @@ using Unity.Transforms;
     #ROOTNAMESPACEBEGIN#
 //[UpdateInGroup(typeof(GameObjectDeclareReferencedObjectsGroup))]
 //[UpdateInGroup(typeof(GameObjectConversionGroup))]
-public class #SCRIPTNAME# : GameObjectConversionSystem
-{
-    protected override void OnUpdate()
-    {
+public class #SCRIPTNAME# : GameObjectConversionSystem {
+    protected override void OnUpdate() {
         Entities.ForEach((IKSolverAuthoring input) => DeclareReferencedPrefab(input.targetPrefab.gameObject));
     }
 }

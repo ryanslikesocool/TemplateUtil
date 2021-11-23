@@ -5,17 +5,14 @@ using UnityEditor;
     #ROOTNAMESPACEBEGIN#
 [CustomEditor(typeof(/*BaseType*/))]
 //[CanEditMultipleObjects]
-public class #SCRIPTNAME# : Editor
-{
+public class #SCRIPTNAME# : Editor {
     //SerializedProperty value;
 
-    public void OnEnable()
-    {
+    public void OnEnable() {
         //value = serializedObject.FindProperty("Value");
     }
 
-    public override void OnInspectorGUI()
-    {
+    public override void OnInspectorGUI() {
         serializedObject.Update();
 
         // EditorGUI content

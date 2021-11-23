@@ -1,8 +1,7 @@
 using UnityEngine.Rendering.Universal;
 
     #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : ScriptableRendererFeature
-{
+public class #SCRIPTNAME# : ScriptableRendererFeature {
     public #SCRIPTNAME#Settings settings = new #SCRIPTNAME#Settings();
 
     private #SCRIPTNAME#Pass pass;
