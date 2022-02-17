@@ -8,10 +8,11 @@ using System.IO;
 
 namespace TemplateUtil
 {
-    public class TemplateUtilWindow : EditorWindow
+    [CustomEditor(typeof(TemplateUtilDatabase))]
+    public class TemplateUtilWindow : Editor
     {
         private const string ASSETS_PATH = "Assets/Plugins/TemplateUtil";
-        private const string PACKAGES_PATH = "Packages/com.ifelse.templateutil";
+        private const string PACKAGES_PATH = "Packages/com.developedwithlove.templateutil";
 
         private const string UTIL_FILE = "TemplateUtilMenus.cs";
 
@@ -30,7 +31,7 @@ namespace TemplateUtil
     public static class TemplateUtilMenus
     {{
         private const string ASSETS_PATH = ""Assets/Plugins/TemplateUtil"";
-        private const string PACKAGES_PATH = ""Packages/com.ifelse.templateutil"";
+        private const string PACKAGES_PATH = ""Packages/com.developedwithlove.templateutil"";
         
         private static void CreateAtPath(string path, string newName)
         {{
@@ -74,63 +75,27 @@ namespace TemplateUtil
         private const string REGION_START = "#region";
         private const string REGION_END = "#endregion";
 
-        private Vector2 scrollPos = Vector2.zero;
-
         private TemplateUtilDatabase database = null;
-        private SerializedObject scriptableObject = null;
-        private SerializedProperty folderProp = null;
 
-        public TemplateUtilDatabase.TemplateFolder[] folders
+        public void OnEnable()
         {
-            get => database.folders;
-            set
-            {
-                if (database != null)
-                {
-                    database.folders = value;
-                }
-            }
+            database = (TemplateUtilDatabase)target;
         }
 
-        [MenuItem("Tools/ifelse/TemplateUtil Manager")]
-        private static void Init()
+        public override void OnInspectorGUI()
         {
-            TemplateUtilWindow window = (TemplateUtilWindow)EditorWindow.GetWindow(typeof(TemplateUtilWindow));
-            window.Show();
-            window.titleContent = new GUIContent("Template Util");
-        }
+            DrawDefaultInspector();
 
-        private void OnGUI()
-        {
-            if (database == null)
+            if (GUILayout.Button($"Generate {UTIL_FILE}"))
             {
-                database = (TemplateUtilDatabase)EditorGUILayout.ObjectField(database, typeof(TemplateUtilDatabase), false);
-            }
-            else
-            {
-                if (scriptableObject == null || folderProp == null)
-                {
-                    scriptableObject = new SerializedObject(database);
-                    folderProp = scriptableObject.FindProperty("folders");
-                }
-
-                scriptableObject.Update();
-
-                scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
-                EditorGUILayout.PropertyField(folderProp, true);
-                EditorGUILayout.EndScrollView();
-
-                if (GUILayout.Button($"Generate {UTIL_FILE}"))
-                {
-                    RegenerateTemplateUtilFile();
-                }
-
-                scriptableObject.ApplyModifiedProperties();
+                RegenerateTemplateUtilFile();
             }
         }
 
         private void RegenerateTemplateUtilFile()
         {
+            TemplateUtilDatabase.TemplateFolder[] folders = database.folders;
+
             string[] folderText = new string[folders.Length];
 
             for (int i = 0; i < folders.Length; i++)

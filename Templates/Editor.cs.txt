@@ -3,19 +3,23 @@ using UnityEngine;
 using UnityEditor;
 
     #ROOTNAMESPACEBEGIN#
-[CustomEditor(typeof(/*BaseType*/))]
-//[CanEditMultipleObjects]
+[CustomEditor(typeof(BaseType))]
+// [CanEditMultipleObjects]
 public class #SCRIPTNAME# : Editor
 {
-    //SerializedProperty value;
+    // private BaseType baseObject;
+    // private SerializedProperty value;
 
     public void OnEnable()
     {
-        //value = serializedObject.FindProperty("Value");
+        // baseObject = (BaseType)target;
+        // value = serializedObject.FindProperty("Value");
     }
 
     public override void OnInspectorGUI()
     {
+        // DrawDefaultInspector();
+
         serializedObject.Update();
 
         // EditorGUI content

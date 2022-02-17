@@ -8,6 +8,8 @@ namespace TemplateUtil
 {
     public class TemplateUtilDatabase : ScriptableObject
     {
+        public TemplateFolder[] folders = new TemplateFolder[0];
+
         [Serializable]
         public struct TemplateFolder
         {
@@ -16,7 +18,6 @@ namespace TemplateUtil
             public int priority;
             public TextAsset[] templateFiles;
         }
-        public TemplateFolder[] folders = new TemplateFolder[0];
     }
 }
 #endif

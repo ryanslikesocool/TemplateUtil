@@ -1,15 +1,14 @@
 {
-    "name": "com.ifelse.templateutil",
-    "displayName": "TemplateUtil",
-    "version": "1.4.4",
-    "unity": "2020.3",
-    "description": "Easily customizable Unity script templates.",
-    "documentationUrl": "https://github.com/ryanslikesocool/TemplateUtil",
-    "dependencies": {},
-    "author": {
-        "name": "Ryan Boyer",
-        "email": "ryanjboyer@gmail.com",
-        "url": "http://ryanjboyer.com/"
-    },
-    "type": "library"
+  "name": "com.developedwithlove.templateutil",
+  "displayName": "TemplateUtil",
+  "version": "1.5.0",
+  "unity": "2021.1",
+  "description": "Easily customizable Unity script templates.",
+  "documentationUrl": "https://github.com/ryanslikesocool/TemplateUtil",
+  "author": {
+    "name": "Ryan Boyer",
+    "email": "ryanjboyer@gmail.com",
+    "url": "http://ryanjboyer.com/"
+  },
+  "type": "library"
 }
