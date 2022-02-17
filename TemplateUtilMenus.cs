@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2021-10-18 03:04:28
+// Generated on 2022-02-17 13:47:14
 // Generated with love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
@@ -13,7 +13,7 @@ namespace TemplateUtil
     public static class TemplateUtilMenus
     {
         private const string ASSETS_PATH = "Assets/Plugins/TemplateUtil";
-        private const string PACKAGES_PATH = "Packages/com.ifelse.templateutil";
+        private const string PACKAGES_PATH = "Packages/com.developedwithlove.templateutil";
         
         private static void CreateAtPath(string path, string newName)
         {
@@ -34,7 +34,7 @@ namespace TemplateUtil
             }
         }
 
-        #region C# Script
+#region C# Script
 
         [MenuItem(itemName: "Assets/Create/C# Script/Class", isValidateFunction: false, priority: -100)]
         public static void CreateClassFromTemplate() => CreateAtPath("Templates/Class.cs.txt", "NewClass.cs");
@@ -169,4 +169,3 @@ namespace TemplateUtil
     }
 }
 #endif
-        
