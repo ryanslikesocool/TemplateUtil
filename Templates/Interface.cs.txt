@@ -1,8 +1,7 @@
 using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
-public interface #SCRIPTNAME#
-{
-    
+public interface #SCRIPTNAME# {
+
 }
 #ROOTNAMESPACEEND#

@@ -5,8 +5,7 @@ using Unity.Mathematics;
 
     #ROOTNAMESPACEBEGIN#
 [Serializable]
-public struct #SCRIPTNAME# : IComponentData
-{
-    
+public struct #SCRIPTNAME# : IComponentData {
+
 }
 #ROOTNAMESPACEEND#

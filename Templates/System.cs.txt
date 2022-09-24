@@ -9,11 +9,9 @@ using Unity.Transforms;
 //[UpdateInGroup(typeof(T1))]
 //[UpdateBefore(typeof(T2))]
 //[UpdateAfter(typeof(T3))]
-public class #SCRIPTNAME# : SystemBase
-{
-    protected override void OnUpdate()
-    {
-        
+public class #SCRIPTNAME# : SystemBase {
+    protected override void OnUpdate() {
+
     }
 }
 #ROOTNAMESPACEEND#

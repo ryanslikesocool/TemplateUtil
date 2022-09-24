@@ -4,11 +4,9 @@ using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
 [DisallowMultipleComponent]
-public class #SCRIPTNAME# : MonoBehaviour, IConvertGameObjectToEntity
-{
-    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
-    {
-        
+public class #SCRIPTNAME# : MonoBehaviour, IConvertGameObjectToEntity {
+    public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem) {
+
     }
 }
 #ROOTNAMESPACEEND#

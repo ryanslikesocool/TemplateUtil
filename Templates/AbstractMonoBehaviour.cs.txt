@@ -1,8 +1,7 @@
 using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
-public abstract class #SCRIPTNAME# : MonoBehaviour
-{
+public abstract class #SCRIPTNAME# : MonoBehaviour {
 
 }
 #ROOTNAMESPACEEND#

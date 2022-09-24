@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
-public enum #SCRIPTNAME#
-{
-    
+public enum #SCRIPTNAME# {
+
 }
 #ROOTNAMESPACEEND#

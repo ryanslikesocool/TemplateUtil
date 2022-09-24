@@ -1,13 +1,11 @@
 using UnityEngine;
 
     #ROOTNAMESPACEBEGIN#
-public class #SCRIPTNAME# : MonoBehaviour
-{
-    public static #SCRIPTNAME# Instance { get; private set; }
+public class #SCRIPTNAME# : MonoBehaviour {
+    public static #SCRIPTNAME# Shared { get; private set; }
 
-    private void Awake()
-    {
-        Instance = this;
+    private void Awake() {
+        Shared = this;
     }
 }
 #ROOTNAMESPACEEND#

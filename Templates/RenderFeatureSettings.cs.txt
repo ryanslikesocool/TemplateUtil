@@ -4,8 +4,7 @@ using UnityEngine.Rendering.Universal;
 
     #ROOTNAMESPACEBEGIN#
 [Serializable]
-public class #SCRIPTNAME#
-{
+public class #SCRIPTNAME# {
     public RenderPassEvent renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
 }
 #ROOTNAMESPACEEND#

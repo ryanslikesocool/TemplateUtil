@@ -6,8 +6,7 @@ using Unity.Rendering;
 
     #ROOTNAMESPACEBEGIN#
 [Serializable, MaterialProperty("_#SCRIPTNAME#", MaterialPropertyFormat.Float)]
-public struct #SCRIPTNAME# : IComponentData
-{
-    
+public struct #SCRIPTNAME# : IComponentData {
+
 }
 #ROOTNAMESPACEEND#

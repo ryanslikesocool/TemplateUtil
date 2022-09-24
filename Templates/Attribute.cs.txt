@@ -2,15 +2,12 @@ using System;
 
     #ROOTNAMESPACEBEGIN#
 [System.AttributeUsage(
-    System.AttributeTargets.Class | System.AttributeTargets.Struct,  
+    System.AttributeTargets.Class | System.AttributeTargets.Struct,
     AllowMultiple = true)
 ]
-public class #SCRIPTNAME# : Attribute
-{
+public class #SCRIPTNAME# : Attribute {
+    public #SCRIPTNAME#() {
 
-    public #SCRIPTNAME#()
-    {
-
-    }   
+    }
 }
 #ROOTNAMESPACEEND#
