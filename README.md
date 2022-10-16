@@ -12,52 +12,52 @@ Easily customizable Unity script templates\
 - Import into Plugins
 
 ## Preinstalled Templates
-- C# Script/
-    - Class
-    - PartialClass
-    - AbstractClass
-    - ExtensionClass
-    - PartialExtensionClass
-    - SingletonClass
-    - Struct
-    - Interface
-    - Enum
-    - Attribute
-- Unity Script/
-    - MonoBehaviour
-    - PartialMonoBehaviour
-    - AbstractMonoBehaviour
-    - MonoBehaviourInstance
-    - ScriptableObject
-    - Editor/
-        - Editor
-        - EditorWindow
-    - Jobs/
-        - Job (IJob)
-        - ForJob (IJobFor)
-        - ParallelForJob (IJobParallelFor)
-    - Universal Render Pipeline/
-        - RenderFeatureSettings
-        - ScriptableRenderFeature
-        - ScriptableRenderPass
-- DOTS Script/
-    - AuthoringComponent (IConvertGameObjectToEntity)
-    - Component/
-        - Component (IComponentData)
-        - BufferElementComponent (IBufferElementData)
-        - MaterialPropertyOverride
-    - System/
-        - System (SystemBase)
-        - SystemGroup (ComponentSystemGroup)
-        - ConversionSystem (GameObjectConversionSystem)
-- Shader File/
-    - HLSLExtension
-    - URP/
-        - URPUnlit
-- Miscellaneous/
-    - PlainText
-    - JSON
-    - Markdown
+- `C# Script/`
+    - `Class`
+    - `PartialClass`
+    - `AbstractClass`
+    - `ExtensionClass`
+    - `PartialExtensionClass`
+    - `SingletonClass`
+    - `Struct`
+    - `Interface`
+    - `Enum`
+    - `Attribute`
+- `Unity Script/`
+    - `MonoBehaviour`
+    - `PartialMonoBehaviour`
+    - `AbstractMonoBehaviour`
+    - `MonoBehaviourInstance`
+    - `ScriptableObject`
+    - `Editor/`
+        - `Editor`
+        - `EditorWindow`
+    - `Jobs/`
+        - `Job (IJob)`
+        - `ForJob (IJobFor)`
+        - `ParallelForJob (IJobParallelFor)`
+    - `Universal Render Pipeline/`
+        - `RenderFeatureSettings`
+        - `ScriptableRenderFeature`
+        - `ScriptableRenderPass`
+- `DOTS Script/`
+    - `AuthoringComponent (IConvertGameObjectToEntity)`
+    - `Component/`
+        - `Component (IComponentData)`
+        - `BufferElementComponent (IBufferElementData)`
+        - `MaterialPropertyOverride`
+    - `System/`
+        - `System (SystemBase)`
+        - `SystemGroup (ComponentSystemGroup)`
+        - `ConversionSystem (GameObjectConversionSystem)`
+- `Shader File/`
+    - `HLSLExtension`
+    - `URP/`
+        - `URPUnlit`
+- `Miscellaneous/`
+    - `PlainText`
+    - `JSON`
+    - `Markdown`
 
 ## Usage
 When in the Project view in Unity, right click into the `Create` menu.\
@@ -83,7 +83,7 @@ In the package directory, locate the `Template Util Database` ScriptableObject t
     - Templates: All of the template files to include under the menu path.
 - Generate: Generates the C# file to enable the menus.  This will overwrite the old file.
 
-**Dynamic Text**\
+**Dynamic Text**
 - `#SCRIPTNAME#`: The name of the file when created
-- `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#`: Wrapped around an object to automatically fill with the current assembly's namespace, if there is one.
+- `#ROOTNAMESPACEBEGIN#` and `#ROOTNAMESPACEEND#`: Wrap around an object to fill with the current assembly's namespace, if there is one.
 - `#NOTRIM#`: Disables automatically trimming whitespace
