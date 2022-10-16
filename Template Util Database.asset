@@ -80,7 +80,7 @@ MonoBehaviour:
     priority: -96
     templateFiles:
     - {fileID: 4900000, guid: 8ff2f649154884cb99525c37ada39568, type: 3}
-  - menuPath: Shader File/URP
+  - menuPath: Shader File/Universal Render Pipeline
     preprocessor: UNITY_URP
     priority: -96
     templateFiles:
