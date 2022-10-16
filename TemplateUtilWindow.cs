@@ -1,4 +1,4 @@
-// Developed with love by Ryan Boyer http://ryanjboyer.com <3
+// Developed With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using UnityEngine;
@@ -6,11 +6,9 @@ using UnityEditor;
 using System;
 using System.IO;
 
-namespace TemplateUtil
-{
+namespace TemplateUtil {
     [CustomEditor(typeof(TemplateUtilDatabase))]
-    public class TemplateUtilWindow : Editor
-    {
+    public class TemplateUtilWindow : Editor {
         private const string ASSETS_PATH = "Assets/Plugins/TemplateUtil";
         private const string PACKAGES_PATH = "Packages/com.developedwithlove.templateutil";
 
@@ -18,7 +16,7 @@ namespace TemplateUtil
 
         private const string UTIL_CLASS = @"// {0}
 // Generated on {1}
-// Generated with love by Ryan Boyer http://ryanjboyer.com <3
+// Generated With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
 using System;
@@ -26,27 +24,22 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace TemplateUtil
-{{
-    public static class TemplateUtilMenus
-    {{
+namespace TemplateUtil {{
+    public static class TemplateUtilMenus {{
         private const string ASSETS_PATH = ""Assets/Plugins/TemplateUtil"";
         private const string PACKAGES_PATH = ""Packages/com.developedwithlove.templateutil"";
-        
-        private static void CreateAtPath(string path, string newName)
-        {{
-            try
-            {{
+
+        private static void CreateAtPath(string path, string newName) {{
+            try {{
                 ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(ASSETS_PATH, path), newName);
                 return;
             }}
             catch {{
-                try
-                {{
+                try {{
                     ProjectWindowUtil.CreateScriptAssetFromTemplateFile(Path.Combine(PACKAGES_PATH, path), newName);
                     return;
                 }}
-                catch  {{
+                catch {{
                     Debug.LogWarning(""Template file could not be found.  Please ensure that the template file is in the correct directory."");
                 }}
             }}
@@ -77,43 +70,36 @@ namespace TemplateUtil
 
         private TemplateUtilDatabase database = null;
 
-        public void OnEnable()
-        {
+        public void OnEnable() {
             database = (TemplateUtilDatabase)target;
         }
 
-        public override void OnInspectorGUI()
-        {
+        public override void OnInspectorGUI() {
             DrawDefaultInspector();
 
-            if (GUILayout.Button($"Generate {UTIL_FILE}"))
-            {
+            if (GUILayout.Button($"Generate {UTIL_FILE}")) {
                 RegenerateTemplateUtilFile();
             }
         }
 
-        private void RegenerateTemplateUtilFile()
-        {
+        private void RegenerateTemplateUtilFile() {
             TemplateUtilDatabase.TemplateFolder[] folders = database.folders;
 
             string[] folderText = new string[folders.Length];
 
-            for (int i = 0; i < folders.Length; i++)
-            {
+            for (int i = 0; i < folders.Length; i++) {
                 string menuPath = folders[i].menuPath;
                 string preprocessor = folders[i].preprocessor;
                 int priority = folders[i].priority;
                 TextAsset[] templateFiles = folders[i].templateFiles;
 
                 string[] methodArray = new string[templateFiles.Length];
-                for (int j = 0; j < methodArray.Length; j++)
-                {
+                for (int j = 0; j < methodArray.Length; j++) {
                     string filePath = AssetDatabase.GetAssetPath(templateFiles[j]);
                     string[] components = filePath.Split('/');
                     string[] finalComponents = components[components.Length - 1].Split('.');
 
-                    if (finalComponents.Length == 3 && finalComponents[finalComponents.Length - 1] == "txt")
-                    {
+                    if (finalComponents.Length == 3 && finalComponents[finalComponents.Length - 1] == "txt") {
                         string realExtension = finalComponents[1];
                         string filePrefix = finalComponents[0];
                         methodArray[j] = string.Format(UTIL_METHOD, $"{menuPath}/{filePrefix}", realExtension, priority, filePrefix);
@@ -122,8 +108,7 @@ namespace TemplateUtil
                 string methods = string.Join(string.Empty, methodArray);
 
                 folderText[i] = string.Join(string.Empty, methods);
-                if (preprocessor != string.Empty)
-                {
+                if (preprocessor != string.Empty) {
                     folderText[i] = $"{PREPROCESSOR_START} {preprocessor}\n{folderText[i]}\n{PREPROCESSOR_END}";
                 }
                 folderText[i] = $"{REGION_START} {menuPath}\n{folderText[i]}\n{REGION_END}";
@@ -139,8 +124,7 @@ namespace TemplateUtil
             bool isPackage = File.Exists(Path.Combine(dataPath, PACKAGES_PATH));
             dataPath = Path.Combine(dataPath, isPackage ? PACKAGES_PATH : ASSETS_PATH);
 
-            if (!File.Exists(dataPath))
-            {
+            if (!File.Exists(dataPath)) {
                 Directory.CreateDirectory(dataPath);
             }
 

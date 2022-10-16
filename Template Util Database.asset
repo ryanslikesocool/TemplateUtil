@@ -22,6 +22,7 @@ MonoBehaviour:
     - {fileID: 4900000, guid: df03f17c071064973ba96437fc2398f6, type: 3}
     - {fileID: 4900000, guid: d690c4da97816488ea29800baa139d21, type: 3}
     - {fileID: 4900000, guid: 6eb1d16e926d648e8b6abe1ca0c04a11, type: 3}
+    - {fileID: 4900000, guid: 46e6b9f5305874b1b95a6b8b726d50cc, type: 3}
     - {fileID: 4900000, guid: 342dd9adf6d65466089877959bd7ea06, type: 3}
     - {fileID: 4900000, guid: fee07c9c147d64ac9a633bfa896f6f7c, type: 3}
     - {fileID: 4900000, guid: 774d08e3a540345faa07a531d61e209f, type: 3}
@@ -48,6 +49,13 @@ MonoBehaviour:
     templateFiles:
     - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
     - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
+  - menuPath: Unity Script/Universal Render Pipeline
+    preprocessor: UNITY_URP
+    priority: -97
+    templateFiles:
+    - {fileID: 4900000, guid: fe1822d81283249e8a3d9428d9e47f22, type: 3}
+    - {fileID: 4900000, guid: 45715ef2cefe447ae83109446f78280f, type: 3}
+    - {fileID: 4900000, guid: 4871f0e96a27a464d9e97748ee17d0a9, type: 3}
   - menuPath: DOTS Script
     preprocessor: UNITY_DOTS
     priority: -98
@@ -67,16 +75,20 @@ MonoBehaviour:
     - {fileID: 4900000, guid: bee20153773f445d398b0951ce99033f, type: 3}
     - {fileID: 4900000, guid: 6b8adad8ebfab469ead84345b590dea9, type: 3}
     - {fileID: 4900000, guid: 36d2a01d567ee4b0cb32b3afb51ab829, type: 3}
-  - menuPath: URP Script
-    preprocessor: UNITY_URP
-    priority: -97
+  - menuPath: Shader File
+    preprocessor: 
+    priority: -96
     templateFiles:
-    - {fileID: 4900000, guid: fe1822d81283249e8a3d9428d9e47f22, type: 3}
-    - {fileID: 4900000, guid: 45715ef2cefe447ae83109446f78280f, type: 3}
-    - {fileID: 4900000, guid: 4871f0e96a27a464d9e97748ee17d0a9, type: 3}
+    - {fileID: 4900000, guid: 8ff2f649154884cb99525c37ada39568, type: 3}
   - menuPath: Shader File/URP
     preprocessor: UNITY_URP
     priority: -96
     templateFiles:
     - {fileID: 4900000, guid: eeb2b3a038be1436891392a944aef2c9, type: 3}
-    - {fileID: 4900000, guid: 8ff2f649154884cb99525c37ada39568, type: 3}
+  - menuPath: Miscellaneous
+    preprocessor: 
+    priority: -95
+    templateFiles:
+    - {fileID: 4900000, guid: a2ad1a10c8cbb4f078c385287b6abce7, type: 3}
+    - {fileID: 4900000, guid: b1f93b96539934036b00fb8d6a3bb300, type: 3}
+    - {fileID: 4900000, guid: beab7b341951e4c5faf64cfd2b47bc1b, type: 3}
