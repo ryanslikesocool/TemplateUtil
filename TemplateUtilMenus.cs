@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2022-10-15 19:18:57
+// Generated on 2022-10-28 09:09:55
 // Generated With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
@@ -155,8 +155,8 @@ namespace TemplateUtil {
 #endregion
 #region Shader File
 
-        [MenuItem(itemName: "Assets/Create/Shader File/HLSLExtension", isValidateFunction: false, priority: -96)]
-        public static void CreateHLSLExtensionFromTemplate() => CreateAtPath("Templates/HLSLExtension.hlsl.txt", "NewHLSLExtension.hlsl");
+        [MenuItem(itemName: "Assets/Create/Shader File/HLSL", isValidateFunction: false, priority: -96)]
+        public static void CreateHLSLFromTemplate() => CreateAtPath("Templates/HLSL.hlsl.txt", "NewHLSL.hlsl");
         
 #endregion
 #region Shader File/Universal Render Pipeline

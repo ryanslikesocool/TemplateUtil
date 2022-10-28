@@ -1,7 +1,7 @@
 Shader "Custom/#SCRIPTNAME#" {
     Properties {
+        _Color ("Color", Color) = (1, 0, 1, 1)
         //_MainTex ("Texture", 2D) = "white" {}
-        //_Color ("Color", Color) = (1, 1, 1, 1)
         //_Vector ("Vector", Vector) = (1, 1, 1, 1)
         //_Float ("Float", Float) = 1
         //_Slider ("Slider", Range(0, 1)) = 1
@@ -9,12 +9,23 @@ Shader "Custom/#SCRIPTNAME#" {
     SubShader {
         Tags {
             "RenderPipeline" = "UniversalPipeline"
-			"Queue" = "Geometry"
+            "UniversalMaterialType" = "SimpleLit"
+            "LightMode" = "SRPDefaultUnlit"
 			"RenderType" = "Opaque"
+			"Queue" = "Geometry"
+            "ForceNoShadowCasting" = "True"
+            "IgnoreProjector" = "True"
         }
+
+        ZWrite On
+        ZTest LEqual
+        Cull Back
+        Blend Off
 
         Pass {
             HLSLPROGRAM
+            #pragma target 2.0
+
             #pragma vertex vert
             #pragma fragment frag
 
@@ -22,13 +33,17 @@ Shader "Custom/#SCRIPTNAME#" {
 
             struct Attributes {
                 float4 positionOS : POSITION;
-                float2 texcoord0 : TEXCOORD0;
+                half2 texcoord0 : TEXCOORD0;
             };
 
             struct Varyings {
-                float4 positionCS : SV_POSITION;
-                float2 texcoord0 : TEXCOORD0;
+                half4 positionCS : SV_POSITION;
+                half2 texcoord0 : TEXCOORD0;
             };
+
+            CBUFFER_START(UnityPerMaterial)
+                uniform half4 _Color;
+            CBUFFER_END
 
             Varyings vert (Attributes IN) {
                 Varyings OUT;
@@ -37,8 +52,8 @@ Shader "Custom/#SCRIPTNAME#" {
                 return OUT;
             }
 
-            float4 frag (Varyings IN) : SV_Target {
-                return float4(0, 1, 1, 1);
+            half4 frag (Varyings IN) : SV_Target {
+                return _Color;
             }
             ENDHLSL
         }
