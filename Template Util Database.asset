@@ -49,6 +49,13 @@ MonoBehaviour:
     templateFiles:
     - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
     - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
+    - {fileID: 4900000, guid: 5449c8dc50b3a4c30ae45a8690b011b5, type: 3}
+  - menuPath: Unity Script/Editor/Build
+    preprocessor: 
+    priority: -97
+    templateFiles:
+    - {fileID: 4900000, guid: 0687ec00da66341848971680d793674f, type: 3}
+    - {fileID: 4900000, guid: 2694f258dad27451a8f31008dbc903e0, type: 3}
   - menuPath: Unity Script/Universal Render Pipeline
     preprocessor: UNITY_URP
     priority: -97

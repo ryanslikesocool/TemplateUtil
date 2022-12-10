@@ -1,0 +1,10 @@
+#if UNITY_EDITOR
+using UnityEngine;
+using UnityEditor;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : AssetPostprocessor {
+    // https://docs.unity3d.com/ScriptReference/AssetPostprocessor.html
+}
+#ROOTNAMESPACEEND#
+#endif

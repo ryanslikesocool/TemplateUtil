@@ -1,10 +1,14 @@
 Shader "Custom/#SCRIPTNAME#" {
     Properties {
         _Color ("Color", Color) = (1, 0, 1, 1)
-        //_MainTex ("Texture", 2D) = "white" {}
-        //_Vector ("Vector", Vector) = (1, 1, 1, 1)
-        //_Float ("Float", Float) = 1
-        //_Slider ("Slider", Range(0, 1)) = 1
+        // _MainTex ("Texture", 2D) = "white" {}
+        // _Vector ("Vector", Vector) = (1, 1, 1, 1)
+        // _Float ("Float", Float) = 1
+        // _Slider ("Slider", Range(0, 1)) = 1
+        // [Toggle] _Toggle ("Toggle", Float) = 0 // off
+        // _StencilRef ("Stencil Ref", Integer) = 0
+        // [Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comp", Integer) = 4 // less equal
+        // [Enum(UnityEngine.Rendering.StencilOp)] _StencilPass ("Stencil Pass", Integer) = 0 // keep
     }
     SubShader {
         Tags {
@@ -21,6 +25,13 @@ Shader "Custom/#SCRIPTNAME#" {
         ZTest LEqual
         Cull Back
         Blend Off
+        // ColorMask 0
+
+        // Stencil {
+        //     Ref [_StencilRef]
+        //     Comp [_StencilComp]
+        //     Pass [_StencilPass]
+        // }
 
         Pass {
             HLSLPROGRAM

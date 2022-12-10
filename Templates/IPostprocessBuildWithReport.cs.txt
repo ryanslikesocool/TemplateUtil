@@ -1,0 +1,14 @@
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : IPostprocessBuildWithReport {
+    public int callbackOrder => 0;
+
+    public void OnPostprocessBuild(BuildReport report) { }
+}
+#ROOTNAMESPACEEND#
+#endif

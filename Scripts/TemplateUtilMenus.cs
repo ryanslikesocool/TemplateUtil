@@ -1,5 +1,5 @@
 // TemplateUtilMenus.cs
-// Generated on 2022-10-28 09:09:55
+// Generated on 2022-12-10 00:34:24
 // Generated With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
@@ -101,6 +101,18 @@ namespace TemplateUtil {
         
         [MenuItem(itemName: "Assets/Create/Unity Script/Editor/EditorWindow", isValidateFunction: false, priority: -97)]
         public static void CreateEditorWindowFromTemplate() => CreateAtPath("Templates/EditorWindow.cs.txt", "NewEditorWindow.cs");
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/AssetPostprocessor", isValidateFunction: false, priority: -97)]
+        public static void CreateAssetPostprocessorFromTemplate() => CreateAtPath("Templates/AssetPostprocessor.cs.txt", "NewAssetPostprocessor.cs");
+        
+#endregion
+#region Unity Script/Editor/Build
+
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Build/IPreprocessBuildWithReport", isValidateFunction: false, priority: -97)]
+        public static void CreateIPreprocessBuildWithReportFromTemplate() => CreateAtPath("Templates/IPreprocessBuildWithReport.cs.txt", "NewIPreprocessBuildWithReport.cs");
+        
+        [MenuItem(itemName: "Assets/Create/Unity Script/Editor/Build/IPostprocessBuildWithReport", isValidateFunction: false, priority: -97)]
+        public static void CreateIPostprocessBuildWithReportFromTemplate() => CreateAtPath("Templates/IPostprocessBuildWithReport.cs.txt", "NewIPostprocessBuildWithReport.cs");
         
 #endregion
 #region Unity Script/Universal Render Pipeline
