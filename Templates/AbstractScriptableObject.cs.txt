@@ -1,0 +1,7 @@
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public abstract class #SCRIPTNAME# : ScriptableObject {
+
+}
+#ROOTNAMESPACEEND#

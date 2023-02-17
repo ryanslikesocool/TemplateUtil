@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e65d555e5d9fc4660b7367c3be94b49d, type: 3}
-  m_Name: Template Util Database
+  m_Name: Template Database
   m_EditorClassIdentifier: 
   folders:
   - menuPath: C# Script
@@ -36,6 +36,7 @@ MonoBehaviour:
     - {fileID: 4900000, guid: cee56c27c4046419786c31549a4ab969, type: 3}
     - {fileID: 4900000, guid: 82a25e491cc814b2181bacb3f7aa2fc1, type: 3}
     - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}
+    - {fileID: 4900000, guid: 832a314f45c25483ea066b0d3a2cc31b, type: 3}
   - menuPath: Unity Script/Jobs
     preprocessor: UNITY_JOBS
     priority: -98
@@ -50,6 +51,7 @@ MonoBehaviour:
     - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
     - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
     - {fileID: 4900000, guid: 5449c8dc50b3a4c30ae45a8690b011b5, type: 3}
+    - {fileID: 4900000, guid: 3e4d80d2ada464354b780f104b011086, type: 3}
   - menuPath: Unity Script/Editor/Build
     preprocessor: 
     priority: -97
