@@ -1,7 +1,7 @@
 {
   "name": "com.developedwithlove.templateutil",
   "displayName": "TemplateUtil",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "unity": "2021.3",
   "description": "Easily customizable Unity script templates.",
   "documentationUrl": "https://github.com/ryanslikesocool/TemplateUtil",

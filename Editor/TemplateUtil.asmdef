@@ -11,27 +11,6 @@
     "precompiledReferences": [],
     "autoReferenced": false,
     "defineConstraints": [],
-    "versionDefines": [
-        {
-            "name": "com.unity.entities",
-            "expression": "0.16",
-            "define": "UNITY_DOTS"
-        },
-        {
-            "name": "com.unity.render-pipelines.universal",
-            "expression": "10",
-            "define": "UNITY_URP"
-        },
-        {
-            "name": "com.unity.inputsystem",
-            "expression": "1",
-            "define": "UNITY_INPUTSYSTEM"
-        },
-        {
-            "name": "com.unity.jobs",
-            "expression": "0.7",
-            "define": "UNITY_JOBS"
-        }
-    ],
+    "versionDefines": [],
     "noEngineReferences": false
 }

@@ -17,7 +17,7 @@ namespace TemplateUtil {
         public override void OnInspectorGUI() {
             DrawDefaultInspector();
 
-            if (GUILayout.Button($"Generate {MenuUtilities.UTIL_FILE_NAME}")) {
+            if (GUILayout.Button($"Generate {FileUtilities.UTIL_FILE_NAME}", GUILayout.Height(50))) {
                 RegenerateTemplateFile();
             }
         }

@@ -1,0 +1,30 @@
+using Foundation;
+
+    #ROOTNAMESPACEBEGIN#
+public readonly struct #SCRIPTNAME# : IOptionSet<uint> {
+    public uint rawValue { get; }
+
+    public #SCRIPTNAME#(uint rawValue) {
+        this.rawValue = rawValue;
+    }
+
+    public static readonly #SCRIPTNAME# none = new #SCRIPTNAME#(0);
+    public static readonly #SCRIPTNAME# a = new #SCRIPTNAME#(1 << 0);
+    public static readonly #SCRIPTNAME# b = new #SCRIPTNAME#(1 << 1);
+    public static readonly #SCRIPTNAME# c = new #SCRIPTNAME#(1 << 2);
+
+    public static readonly #SCRIPTNAME# all = new #SCRIPTNAME#(a | b | c);
+
+    public static implicit operator uint(#SCRIPTNAME# value) => value.rawValue;
+}
+
+public static partial class Extensions {
+    public static void Insert(this ref #SCRIPTNAME# value, #SCRIPTNAME# other) {
+        value = new #SCRIPTNAME#(value | value);
+    }
+
+    public static void Remove(this ref #SCRIPTNAME# value, #SCRIPTNAME# other) {
+        value = new #SCRIPTNAME#(value & ~value);
+    }
+}
+#ROOTNAMESPACEEND#

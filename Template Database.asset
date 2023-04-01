@@ -12,41 +12,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65d555e5d9fc4660b7367c3be94b49d, type: 3}
   m_Name: Template Database
   m_EditorClassIdentifier: 
+  basePriority: -100
+  defines:
+  - name: com.unity.render-pipelines.universal
+    expression: 10
+    define: UNITY_URP
+  - name: com.unity.render-pipelines.high-definition
+    expression: 10
+    define: UNITY_HDRP
+  - name: com.unity.entities
+    expression: 0.16
+    define: UNITY_DOTS
+  - name: com.unity.inputsystem
+    expression: 1
+    define: UNITY_INPUTSYSTEM
+  - name: com.unity.collections
+    expression: 1.2.4
+    define: UNITY_COLLECTIONS
+  - name: com.developedwithlove.foundation
+    expression: 
+    define: DWL_FOUNDATION
   folders:
   - menuPath: C# Script
     preprocessor: 
-    priority: -100
     templateFiles:
     - {fileID: 4900000, guid: 6ad2ed2cae96c4a5dbc58629be0ef398, type: 3}
+    - {fileID: 4900000, guid: 342dd9adf6d65466089877959bd7ea06, type: 3}
+    - {fileID: 4900000, guid: 774d08e3a540345faa07a531d61e209f, type: 3}
+    - {fileID: 4900000, guid: fee07c9c147d64ac9a633bfa896f6f7c, type: 3}
     - {fileID: 4900000, guid: 342fb51ddc8a3460cb5255e3fd030ec9, type: 3}
     - {fileID: 4900000, guid: df03f17c071064973ba96437fc2398f6, type: 3}
     - {fileID: 4900000, guid: d690c4da97816488ea29800baa139d21, type: 3}
     - {fileID: 4900000, guid: 6eb1d16e926d648e8b6abe1ca0c04a11, type: 3}
     - {fileID: 4900000, guid: 46e6b9f5305874b1b95a6b8b726d50cc, type: 3}
-    - {fileID: 4900000, guid: 342dd9adf6d65466089877959bd7ea06, type: 3}
-    - {fileID: 4900000, guid: fee07c9c147d64ac9a633bfa896f6f7c, type: 3}
-    - {fileID: 4900000, guid: 774d08e3a540345faa07a531d61e209f, type: 3}
     - {fileID: 4900000, guid: 3f9217cd293b84e8fb2a3beba3c0c6cb, type: 3}
   - menuPath: Unity Script
     preprocessor: 
-    priority: -99
     templateFiles:
     - {fileID: 4900000, guid: c04aaf122a364458994a5170482556f6, type: 3}
+    - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}
     - {fileID: 4900000, guid: 3784166210bc7461f8540699231eb9ed, type: 3}
     - {fileID: 4900000, guid: cee56c27c4046419786c31549a4ab969, type: 3}
     - {fileID: 4900000, guid: 82a25e491cc814b2181bacb3f7aa2fc1, type: 3}
-    - {fileID: 4900000, guid: 982ac206866394980960b2f48624baaa, type: 3}
     - {fileID: 4900000, guid: 832a314f45c25483ea066b0d3a2cc31b, type: 3}
   - menuPath: Unity Script/Jobs
-    preprocessor: UNITY_JOBS
-    priority: -98
+    preprocessor: UNITY_COLLECTIONS
     templateFiles:
     - {fileID: 4900000, guid: 431c5b51fd42f4698974dcbe303f2ee6, type: 3}
     - {fileID: 4900000, guid: 7248fbc6e6ef64c8694fbea0e9ee3a74, type: 3}
     - {fileID: 4900000, guid: 46a38d680137946e588185677b823fd8, type: 3}
   - menuPath: Unity Script/Editor
     preprocessor: 
-    priority: -97
     templateFiles:
     - {fileID: 4900000, guid: 91a82f0693e6d4cda972f41b37911164, type: 3}
     - {fileID: 4900000, guid: c24919335586643e4920d86a5dbf0ec0, type: 3}
@@ -54,49 +70,45 @@ MonoBehaviour:
     - {fileID: 4900000, guid: 3e4d80d2ada464354b780f104b011086, type: 3}
   - menuPath: Unity Script/Editor/Build
     preprocessor: 
-    priority: -97
     templateFiles:
     - {fileID: 4900000, guid: 0687ec00da66341848971680d793674f, type: 3}
     - {fileID: 4900000, guid: 2694f258dad27451a8f31008dbc903e0, type: 3}
   - menuPath: Unity Script/Universal Render Pipeline
     preprocessor: UNITY_URP
-    priority: -97
     templateFiles:
     - {fileID: 4900000, guid: fe1822d81283249e8a3d9428d9e47f22, type: 3}
     - {fileID: 4900000, guid: 45715ef2cefe447ae83109446f78280f, type: 3}
     - {fileID: 4900000, guid: 4871f0e96a27a464d9e97748ee17d0a9, type: 3}
+  - menuPath: Foundation
+    preprocessor: DWL_FOUNDATION
+    templateFiles:
+    - {fileID: 4900000, guid: 6d0ddfaeddd4845d1a1d592ffd28e02f, type: 3}
   - menuPath: DOTS Script
     preprocessor: UNITY_DOTS
-    priority: -98
     templateFiles:
     - {fileID: 4900000, guid: 7038395650a4d4c1baed7bf7882759d4, type: 3}
   - menuPath: DOTS Script/Component
     preprocessor: UNITY_DOTS
-    priority: -98
     templateFiles:
     - {fileID: 4900000, guid: e107c5ebe227d456bbc5666325b19cc3, type: 3}
     - {fileID: 4900000, guid: 124ae907ce6244c1589519d5b362618c, type: 3}
     - {fileID: 4900000, guid: abbe3f3fbc82341109dfd6c4edf90654, type: 3}
   - menuPath: DOTS Script/System
     preprocessor: UNITY_DOTS
-    priority: -98
     templateFiles:
     - {fileID: 4900000, guid: bee20153773f445d398b0951ce99033f, type: 3}
     - {fileID: 4900000, guid: 6b8adad8ebfab469ead84345b590dea9, type: 3}
     - {fileID: 4900000, guid: 36d2a01d567ee4b0cb32b3afb51ab829, type: 3}
   - menuPath: Shader File
     preprocessor: 
-    priority: -96
     templateFiles:
     - {fileID: 4900000, guid: 8ff2f649154884cb99525c37ada39568, type: 3}
   - menuPath: Shader File/Universal Render Pipeline
     preprocessor: UNITY_URP
-    priority: -96
     templateFiles:
     - {fileID: 4900000, guid: eeb2b3a038be1436891392a944aef2c9, type: 3}
   - menuPath: Miscellaneous
     preprocessor: 
-    priority: -95
     templateFiles:
     - {fileID: 4900000, guid: a2ad1a10c8cbb4f078c385287b6abce7, type: 3}
     - {fileID: 4900000, guid: b1f93b96539934036b00fb8d6a3bb300, type: 3}

@@ -8,7 +8,7 @@ namespace TemplateUtil {
     internal struct TemplateFolder {
         public string menuPath;
         public string preprocessor;
-        public int priority;
+        public string define;
         public TextAsset[] templateFiles;
     }
 }

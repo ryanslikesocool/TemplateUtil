@@ -1,10 +1,10 @@
 // Developed With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
-using UnityEngine;
-using UnityEditor;
 using System;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 namespace TemplateUtil {
     internal static class MenuBuilder {
@@ -13,10 +13,7 @@ namespace TemplateUtil {
 // Generated on {1}
 // Generated With Love by Ryan Boyer http://ryanjboyer.com <3
 
-using System;
-using UnityEngine;
 using UnityEditor;
-using System.IO;
 
 namespace TemplateUtil {{
     internal static class TemplateMenus {{
@@ -44,8 +41,8 @@ namespace TemplateUtil {{
 
         public static void RebuildScript(in TemplateDatabase database) {
             (string fileText, string dateTime) = CreateText(database);
-            WriteText(fileText, dateTime);
-            Debug.Log($"Generated {MenuUtilities.UTIL_FILE_NAME} at {dateTime}.  Reloading scripts...");
+            WriteText(database.defines, fileText, dateTime);
+            Debug.Log($"Generated {FileUtilities.UTIL_FILE_NAME} at {dateTime}.  Reloading scripts...");
         }
 
         private static (string, string) CreateText(in TemplateDatabase database) {
@@ -56,7 +53,7 @@ namespace TemplateUtil {{
             for (int i = 0; i < folders.Length; i++) {
                 string menuPath = folders[i].menuPath;
                 string preprocessor = folders[i].preprocessor;
-                int priority = folders[i].priority;
+                int priority = database.basePriority - (folders.Length - i);
                 TextAsset[] templateFiles = folders[i].templateFiles;
 
                 string[] methodArray = new string[templateFiles.Length];
@@ -82,18 +79,18 @@ namespace TemplateUtil {{
 
             string allMethods = string.Join("\n", folderText);
             string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string fileText = string.Format(UTIL_CLASS, MenuUtilities.UTIL_FILE_NAME, dateTime, allMethods);
+            string fileText = string.Format(UTIL_CLASS, FileUtilities.UTIL_FILE_NAME, dateTime, allMethods);
 
             return (fileText, dateTime);
         }
 
-        private static void WriteText(string fileText, string dateTime) {
-            MenuUtilities.CreatePluginsFolder();
-            MenuUtilities.CreateAssemblyDefinitionReference();
+        private static void WriteText(VersionDefine[] defines, string fileText, string dateTime) {
+            FileUtilities.CreatePluginsFolder();
+            FileUtilities.CreateAssemblyDefinition(defines);
 
-            string path = Path.Combine(Application.dataPath.Replace("Assets", string.Empty), MenuUtilities.UTIL_FILE_PATH);
+            string path = Path.Combine(Application.dataPath.Replace("Assets", string.Empty), FileUtilities.UTIL_FILE_PATH);
             File.WriteAllText(path, fileText);
-            AssetDatabase.ImportAsset(MenuUtilities.UTIL_FILE_PATH, ImportAssetOptions.ForceUpdate);
+            AssetDatabase.Refresh();
         }
     }
 }
