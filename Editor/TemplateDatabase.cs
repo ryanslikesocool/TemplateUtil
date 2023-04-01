@@ -7,6 +7,7 @@ using UnityEngine;
 namespace TemplateUtil {
     [CreateAssetMenu(menuName = "Developed With Love/TemplateUtil/Template Database")]
     internal sealed class TemplateDatabase : ScriptableObject {
+        public int basePriority = -100;
         public TemplateFolder[] folders = new TemplateFolder[0];
     }
 }

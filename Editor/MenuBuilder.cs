@@ -1,10 +1,10 @@
 // Developed With Love by Ryan Boyer http://ryanjboyer.com <3
 
 #if UNITY_EDITOR
-using UnityEngine;
-using UnityEditor;
 using System;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 namespace TemplateUtil {
     internal static class MenuBuilder {
@@ -13,10 +13,7 @@ namespace TemplateUtil {
 // Generated on {1}
 // Generated With Love by Ryan Boyer http://ryanjboyer.com <3
 
-using System;
-using UnityEngine;
 using UnityEditor;
-using System.IO;
 
 namespace TemplateUtil {{
     internal static class TemplateMenus {{
@@ -56,7 +53,7 @@ namespace TemplateUtil {{
             for (int i = 0; i < folders.Length; i++) {
                 string menuPath = folders[i].menuPath;
                 string preprocessor = folders[i].preprocessor;
-                int priority = folders[i].priority;
+                int priority = database.basePriority - (folders.Length - i);
                 TextAsset[] templateFiles = folders[i].templateFiles;
 
                 string[] methodArray = new string[templateFiles.Length];

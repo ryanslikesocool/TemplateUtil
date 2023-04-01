@@ -31,6 +31,11 @@
             "name": "com.unity.jobs",
             "expression": "0.7",
             "define": "UNITY_JOBS"
+        },
+        {
+            "name": "com.developedwithlove.foundation",
+            "expression": "",
+            "define": "FOUNDATION"
         }
     ],
     "noEngineReferences": false
