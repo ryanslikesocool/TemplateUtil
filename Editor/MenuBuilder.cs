@@ -90,7 +90,7 @@ namespace TemplateUtil {{
 
             string path = Path.Combine(Application.dataPath.Replace("Assets", string.Empty), FileUtilities.UTIL_FILE_PATH);
             File.WriteAllText(path, fileText);
-            AssetDatabase.ImportAsset(FileUtilities.UTIL_FILE_PATH, ImportAssetOptions.ForceUpdate);
+            AssetDatabase.Refresh();
         }
     }
 }
