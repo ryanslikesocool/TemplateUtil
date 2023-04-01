@@ -28,10 +28,10 @@ To add a template, create a new file with the extension `.<type>.txt` in the tem
 If TemplateUtil is installed via the Package Manager, create the file inside `Assets/Plugins/TemplateUtil/Templates`.\
 Add the C# code you'd like for the template.  Refer to [Dynamic Text](#dynamic-text) for information on automatically filling certain text.\
 In the package directory, locate the `Template Util Database` asset to add template files.
+- Base Priority: The base menu priority of the list.  Items are kept in the order of the list below, but are offset within the larger Create menu by this amount.  -50 or lower will put the menu at the top of the Create menu.
 - Folder: Groups to categorize templates.  Purely for organization in the editor
     - Menu Path: The path that the templates should be under in the `Create` menu
     - Preprocessor: Optional preprocessor to use for the templates (for example, `UNITY_URP` will only show the menu if the URP package is installed).  This string is inserted directly into the C# script, so using `&&` or `||` to combine preprocessors will work as expected.
-    - Priority: The menu priority of the object.  -50 or lower will put the menu at the top of the Create menu.
     - Templates: All of the template files to include under the menu path.
 - Generate: Generates the C# file to enable the menus.  This will overwrite the old file.
 
