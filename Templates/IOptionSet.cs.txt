@@ -26,5 +26,25 @@ public static partial class Extensions {
     public static void Remove(this ref #SCRIPTNAME# value, #SCRIPTNAME# other) {
         value = new #SCRIPTNAME#(value & ~value);
     }
+
+    public static void Toggle(this ref #SCRIPTNAME# value, #SCRIPTNAME# other) {
+        if (value.Contains(other)) {
+            value.Remove(other);
+        } else {
+            value.Insert(other);
+        }
+    }
+
+    public static void Set(this ref #SCRIPTNAME# value, #SCRIPTNAME# other, bool state) {
+        if (state) {
+            value.Insert(other);
+        } else {
+            value.Remove(other);
+        }
+    }
+
+    public static bool Contains(this in #SCRIPTNAME# value, #SCRIPTNAME# other)
+        => (value & other) == other;
+
 }
 #ROOTNAMESPACEEND#
