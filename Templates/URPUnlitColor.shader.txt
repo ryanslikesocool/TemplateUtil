@@ -1,0 +1,118 @@
+Shader "Custom/Unlit/#SCRIPTNAME#" {
+    Properties {
+        [MainColor] _Color ("Color", Color) = (0, 0, 0, 1)
+        [HideInInspector] _ColorInstanced ("Color Instanced", Color) = (1, 1, 1, 1)
+
+        [Header(Depth)]
+
+        [Toggle] _ZWrite ("Write Depth", Integer) = 0
+        [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("Depth Test", Int) = 4
+
+        // https://docs.unity3d.com/ScriptReference/Rendering.CullMode.html
+        [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Int) = 2
+
+        [Header(Blend)]
+
+        // https://docs.unity3d.com/ScriptReference/Rendering.BlendMode.html
+        [Enum(UnityEngine.Rendering.BlendMode)] _BlendSRC ("Blend (Source)", Int) = 1
+        [Enum(UnityEngine.Rendering.BlendMode)] _BlendDST ("Blend (Destination)", Int) = 0
+
+        [Header(Stencil)]
+
+        _StencilRef ("Stencil Ref", Integer) = 0
+
+        // https://docs.unity3d.com/ScriptReference/Rendering.StencilOp.html
+        [Enum(UnityEngine.Rendering.CompareFunction)] _StencilComp ("Stencil Comp", Int) = 0
+        [Enum(UnityEngine.Rendering.StencilOp)] _StencilPass ("Stencil Pass", Int) = 0
+    }
+
+    HLSLINCLUDE
+    #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+    ENDHLSL
+
+    SubShader {
+        // https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/urp-shaders/urp-shaderlab-pass-tags.html
+        Tags {
+            "RenderPipeline" = "UniversalPipeline"
+            "UniversalMaterialType" = "SimpleLit"
+            "LightMode" = "SRPDefaultUnlit"
+			"RenderType" = "Opaque"
+			"Queue" = "Geometry"
+            "ForceNoShadowCasting" = "True"
+            "IgnoreProjector" = "True"
+        }
+
+        ZWrite [_ZWrite]
+        ZTest [_ZTest]
+        Cull [_Cull]
+        Blend [_BlendSRC] [_BlendDST]
+
+        Stencil {
+            Ref [_StencilRef]
+            Comp [_StencilComp]
+            Pass [_StencilPass]
+        }
+
+        Pass {
+            Name "Main"
+
+            HLSLPROGRAM
+            #pragma target 2.0
+
+			#pragma multi_compile_instancing
+
+            #pragma vertex vert
+            #pragma fragment frag
+
+            struct Attributes {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+                float4 positionOS : POSITION;
+                half2 texcoord0 : TEXCOORD0;
+            };
+
+            struct Varyings {
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+                UNITY_VERTEX_OUTPUT_STEREO
+                half4 positionCS : SV_POSITION;
+                half2 texcoord0 : TEXCOORD0;
+            };
+
+            CBUFFER_START(UnityPerMaterial)
+                uniform half4 _Color;
+            CBUFFER_END
+
+            UNITY_INSTANCING_BUFFER_START(InstanceProperties)
+                // UNITY_DEFINE_INSTANCED_PROP(half4, _InstancedProperty)
+            UNITY_INSTANCING_BUFFER_END(InstanceProperties)
+
+            Varyings vert (Attributes IN) {
+                Varyings OUT = (Varyings)0;
+
+                UNITY_SETUP_INSTANCE_ID(IN);
+                UNITY_TRANSFER_INSTANCE_ID(IN, OUT);
+                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT);
+
+                OUT.positionCS = TransformObjectToHClip(IN.positionOS.xyz);
+                OUT.texcoord0 = IN.texcoord0;
+
+                #if UNITY_UV_STARTS_AT_TOP
+                OUT.texcoord0.y = 1.0 - OUT.texcoord0.y;
+                #endif
+
+                return OUT;
+            }
+
+            half4 frag (Varyings IN) : SV_Target {
+                UNITY_SETUP_INSTANCE_ID(IN);
+                UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
+
+                // half4 instancedProperty = UNITY_ACCESS_INSTANCED_PROP(InstanceProperties, _InstancedProperty);
+
+                return _Color;
+            }
+            ENDHLSL
+        }
+    }
+
+    Fallback off
+}
