@@ -6,6 +6,8 @@ Shader "Custom/Unlit/#SCRIPTNAME#" {
         [Header(Depth)]
 
         [Toggle] _ZWrite ("Write Depth", Integer) = 0
+
+        // https://docs.unity3d.com/ScriptReference/Rendering.CompareFunction.html
         [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("Depth Test", Int) = 4
 
         // https://docs.unity3d.com/ScriptReference/Rendering.CullMode.html
