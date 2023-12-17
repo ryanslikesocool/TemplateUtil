@@ -1,0 +1,27 @@
+#if UNITY_EDITOR
+using UnityEngine;
+using UnityEditor;
+
+    #ROOTNAMESPACEBEGIN#
+[CustomPropertyDrawer(typeof(BaseType))]
+internal sealed class #SCRIPTNAME# : PropertyDrawer {
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
+        return base.GetPropertyHeight(property, label);
+    }
+
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+		using (var scope = new EditorGUI.PropertyScope(position, label, property)) {
+			// Draw label
+			label = scope.content;
+			position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
+
+			using (new EditorGUI.IndentLevelScope(-EditorGUI.indentLevel)) {
+				// ------------
+				// --- Draw ---
+				// ------------
+			}
+		}
+    }
+}
+#ROOTNAMESPACEEND#
+#endif

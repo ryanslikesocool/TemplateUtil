@@ -1,15 +1,23 @@
 {
   "name": "com.developedwithlove.templateutil",
   "displayName": "TemplateUtil",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "unity": "2021.3",
   "description": "Easily customizable Unity script templates.",
   "documentationUrl": "https://github.com/ryanslikesocool/TemplateUtil",
   "author": {
     "name": "Ryan Boyer",
     "email": "ryanjboyer@gmail.com",
-    "url": "http://ryanjboyer.com/"
+    "url": "https://ryanjboyer.com/"
   },
   "license": "MIT",
-  "type": "library"
+  "type": "library",
+	"hideInEditor": false,
+	"keywords": [
+		"template",
+		"utility",
+		"code",
+		"script",
+		"file"
+	]
 }

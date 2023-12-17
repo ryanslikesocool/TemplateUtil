@@ -1,29 +1,29 @@
 // Developed With Love by Ryan Boyer http://ryanjboyer.com <3
 
-using System;
-using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
 namespace TemplateUtil {
-    [CustomEditor(typeof(TemplateDatabase))]
-    internal sealed class TemplateDatabaseEditor : Editor {
-        private TemplateDatabase database = null;
+	[CustomEditor(typeof(TemplateDatabase))]
+	internal sealed class TemplateDatabaseEditor : Editor {
+		private TemplateDatabase database = null;
 
-        public void OnEnable() {
-            database = (TemplateDatabase)target;
-        }
+		public void OnEnable() {
+			database = (TemplateDatabase)target;
+		}
 
-        public override void OnInspectorGUI() {
-            DrawDefaultInspector();
+		public override void OnInspectorGUI() {
+			DrawDefaultInspector();
 
-            if (GUILayout.Button($"Generate {FileUtilities.UTIL_FILE_NAME}", GUILayout.Height(50))) {
-                RegenerateTemplateFile();
-            }
-        }
+			if (GUILayout.Button($"Generate {FileUtilities.UTIL_FILE_NAME}", GUILayout.Height(50))) {
+				RegenerateTemplateFile();
+			}
+		}
 
-        private void RegenerateTemplateFile() {
-            MenuBuilder.RebuildScript(database);
-        }
-    }
+		private void RegenerateTemplateFile() {
+			MenuBuilder.RebuildScript(database);
+		}
+	}
 }
+#endif
