@@ -2,11 +2,12 @@
 Easily customizable Unity script templates.\
 ![Sample Image](images~/sample.png)
 
-## Installation
-
-**Recommended Installation** (Unity Package Manager)
-- "Add package from git URL..."
-- `https://github.com/ryanslikesocool/TemplateUtil.git`
+## Installation (Unity Package Manager)
+- Select "Add package from git URL..." from the plus menu in the package manager window.
+- Paste the package's git url.
+```
+https://github.com/ryanslikesocool/TemplateUtil.git
+```
 
 ## Setup
 - Create a new Template Database scriptable object from the right click menu (`Create > Developed With Love > TemplateUtil > Template Database`).

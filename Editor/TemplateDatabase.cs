@@ -4,11 +4,16 @@
 using UnityEngine;
 
 namespace TemplateUtil {
-    [CreateAssetMenu(menuName = "Developed With Love/TemplateUtil/Template Database")]
-    internal sealed class TemplateDatabase : ScriptableObject {
-        public int basePriority = -100;
-        public VersionDefine[] defines = new VersionDefine[0];
-        public TemplateFolder[] folders = new TemplateFolder[0];
-    }
+	[CreateAssetMenu(menuName = "Developed With Love/TemplateUtil/Template Database")]
+	internal sealed class TemplateDatabase : ScriptableObject {
+		public int basePriority
+#if UNITY_2023_1_OR_NEWER
+			= -200;
+#else
+			= -100;
+#endif
+		public VersionDefine[] defines = default;
+		public TemplateFolder[] folders = default;
+	}
 }
 #endif
